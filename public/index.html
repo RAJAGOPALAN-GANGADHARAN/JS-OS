@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="theme-color" content="#000000">
+		<!--
+			manifest.json provides metadata used when your web app is added to the
+			homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+		-->
+		<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+		<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+		<!--
+			Notice the use of %PUBLIC_URL% in the tags above.
+			It will be replaced with the URL of the `public` folder during the build.
+			Only files inside the `public` folder can be referenced from the HTML.
+
+			Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+			work correctly both with client-side routing and a non-root public URL.
+			Learn how to configure a non-root public URL by running `npm run build`.
+		-->
+		<title>JS-OS</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+	<!--<script>
+		$(document).bind("contextmenu", function (event) 
+		{
+			event.preventDefault();
+			elementMouseIsOver = document.elementFromPoint(event.clientX, event.clientY);
+			console.log(elementMouseIsOver);
+			$(".custom-menu").finish().toggle(100).
+			css({
+					top: event.pageY + "px",
+					left: event.pageX + "px"
+			});
+		});
+		$(document).bind("mousedown", function (e) 
+		{
+			if (!$(e.target).parents(".custom-menu").length > 0) 
+			{
+					$(".custom-menu").hide(100);
+			}
+		});
+
+		/*$(".custom-menu li").click(function()
+		{
+			
+			// This is the triggered action name
+			switch($(this).attr("data-action")) {
+					
+					// A case for each action. Your actions here
+					case "first": alert("first"); break;
+					case "second": alert("second"); break;
+					case "third": alert("third"); break;
+			}
+
+			// Hide it AFTER the action was triggered
+			$(".custom-menu").hide(100);
+		});*/
+	</script>-->
+</head>
+	<body>
+		<noscript>
+			You need to enable JavaScript to run this app.
+		</noscript>
+		<div id="root"></div>
+		<!--
+			This HTML file is a template.
+			If you open it directly in the browser, you will see an empty page.
+
+			You can add webfonts, meta tags, or analytics to this file.
+			The build step will place the bundled scripts into the <body> tag.
+
+			To begin the development, run `npm start` or `yarn start`.
+			To create a production bundle, use `npm run build` or `yarn build`.
+		-->
+	</body>
+</html>

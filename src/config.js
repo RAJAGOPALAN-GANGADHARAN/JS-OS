@@ -1,0 +1,1 @@
+export var taskBarPresent=['explorer','editor']

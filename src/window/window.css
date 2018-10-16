@@ -1,0 +1,84 @@
+.window{
+    background-color: transparent;
+    margin:30px 20px;   
+    position: absolute;
+    box-sizing: border-box;
+    -ms-touch-action: none;
+    touch-action: none;
+    width:150px;
+    height:150px;
+    border-collapse: separate;
+}
+.header{
+    width:100%;
+    height:30px;
+    background-color:black;
+    position: relative;
+    top:0;
+    opacity:0.8;
+}
+.button_cont{
+    height:100%;
+    float:right;
+    position: relative;
+    display:flex;
+    user-select: none;
+}
+.button_cont_button{
+    border-radius:2px;
+    height:70%;
+    width:30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin:auto;
+    text-align: center;
+}
+
+ 
+.close_button:hover{
+    background-color: red;
+}
+.close_button:hover>.close_mark{
+    color:white;
+}
+.close_mark{
+    color:red;
+    transition-duration: 0.4s;
+}
+
+.maximize_button:hover{
+    background-color: green;
+}
+.maximize_button:hover>.maximize_mark{
+    color:white;
+}
+.maximize_mark{
+    color:green;
+    transition-duration: 0.4s;
+}
+
+.minimize_button:hover{
+    background-color: yellow;
+}
+.minimize_button:hover>.minimize_mark{
+    color:white;
+}
+.minimize_mark{
+    color:yellow;
+    transition-duration: 0.4s;
+}
+.content{
+    background-color: white;
+    height:100%;
+    width:100%;
+}
+@media only screen and (max-width: 720px) {
+    .header{
+        height:15px;
+    }
+    .button_cont_button{
+        font-size: 9px;
+    }
+}
+
+  

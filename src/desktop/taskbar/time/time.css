@@ -1,0 +1,35 @@
+#time-cont{
+    height:100%;
+    width:3%;
+    float: right;
+    color:white;
+    font-size:15px;
+}
+#time-cont:hover{
+    cursor: pointer;
+}
+#line-1{
+    position: relative;
+    top:5px;
+}
+#line-2{
+    position: relative;
+    top:8px;
+    right:20px;
+}
+@media only screen and (max-width: 720px) {
+    #time-cont{
+        width:6%;
+    }
+}
+@media (orientation:portrait)
+{
+    #time-cont{
+        width:11%;
+    }
+}
+#clockCanvas{
+    width:100%;
+    height:100%;
+    background-color:#333;
+}

@@ -1,0 +1,12 @@
+#taskbar{
+    width:100%;
+    height:50px;
+    position: absolute;
+    bottom:0;
+    z-index: 8790287;
+}
+@media only screen and (max-width: 720px) {
+    #taskbar{
+        height:30px;
+    }
+}
