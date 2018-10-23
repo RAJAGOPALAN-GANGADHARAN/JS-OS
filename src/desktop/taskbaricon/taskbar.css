@@ -1,7 +1,7 @@
 .taskicon-cont{
     height:100%;
-    width:3%;
-    float: left;
+    width:100%;
+    display: inline-block;
     user-select: none;
 }
 .taskicon-cont:hover{

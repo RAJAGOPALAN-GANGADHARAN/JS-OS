@@ -4,6 +4,7 @@
     float: right;
     color:white;
     font-size:15px;
+    background-color: black;
 }
 #time-cont:hover{
     cursor: pointer;

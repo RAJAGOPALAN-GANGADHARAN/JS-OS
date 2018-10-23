@@ -1,4 +1,7 @@
-import {folderStructure, fileStructure} from './fileClass';  
+import {folderStructure, fileStructure} from './fileClass';
+
+//launcher installer
+
 //handle files
 //main root
 export var disk=new folderStructure('root');

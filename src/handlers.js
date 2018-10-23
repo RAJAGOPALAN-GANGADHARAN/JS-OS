@@ -8,6 +8,7 @@ import { disk } from "./filesystem/main";
 import Empty, { Test } from "./misc/misc";
 import { TimeApp } from "./desktop/taskbar/time/time";
 import Editor from "./defaultapps/texteditor/editor";
+import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
 
 class runningTasks
 {
@@ -58,23 +59,26 @@ function parentGen(id)
     desktop.appendChild(element);
     return element;
 }
-/*function parentTaskGen(appName)
+export function taskParentGen(appName)
 {
     var element=document.createElement("div");
     element.setAttribute('id',appName+'taskParent');
     element.style.width="3%";
     element.style.height="100%";
-    element.style.backgroundColor="blue";
+    //element.style.backgroundColor="green";
+    //element.style.display="table-cell";
     var taskbar=document.getElementById("taskbar");
     //element.style.position="absolute";
     taskbar.appendChild(element);
     return element;
-}*/
+}
 export function eventDispatcher(requestedAppId)
 {
     let id=idGen(10);
     eventHandler[id]=new runningTasks(id,appRegistry[requestedAppId]);
-    //parentTaskGen(eventHandler[id].processName);
+    var tPG=taskParentGen(eventHandler[id].processName);
+    console.log(eventHandler[id].processIcon);
+    ReactDOM.render(<TaskbarIcon name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
     ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
 }
 function parentDestroy(id)
