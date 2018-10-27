@@ -69,7 +69,7 @@ export default class Taskbar extends Component
     {
         super(props);
         this.state={taskbarcolor:theme_color_panels,taskbartype:'solid',taskBarApps:{},taskBarAppsHolder:[]};
-        this.manager=this.manager.bind(this);
+        //this.manager=this.manager.bind(this);
         
     }
     componentDidMount()
@@ -80,7 +80,7 @@ export default class Taskbar extends Component
         },10);
         this.setState({taskBarApps:eventHandler})
     }
-    componentDidUpdate(prevProps,prevState)
+    /*componentDidUpdate(prevProps,prevState)
     {
 
         var sizePresent=Object.keys(this.state.taskBarApps).length;
@@ -104,7 +104,7 @@ export default class Taskbar extends Component
             }
             this.setState({taskBarAppsHolder:holder});
         }
-    }      
+    }   */   
     render()
     {
         return(

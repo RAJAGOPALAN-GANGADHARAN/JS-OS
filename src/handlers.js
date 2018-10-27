@@ -59,10 +59,20 @@ function parentGen(id)
     desktop.appendChild(element);
     return element;
 }
-export function taskParentGen(appName)
+function isAlreadyRunning(appName)
+{
+    console.log(appName);
+    for(var task in eventHandler)
+    {
+        if(appName==eventHandler[task].processName)
+        return true;
+    }
+    return false;
+}
+export function taskParentGen(id)
 {
     var element=document.createElement("div");
-    element.setAttribute('id',appName+'taskParent');
+    element.setAttribute('id',id+'taskParent');
     element.style.width="3%";
     element.style.height="100%";
     //element.style.backgroundColor="green";
@@ -75,10 +85,14 @@ export function taskParentGen(appName)
 export function eventDispatcher(requestedAppId)
 {
     let id=idGen(10);
+    var isRunning=isAlreadyRunning(appRegistry[requestedAppId].processName)
     eventHandler[id]=new runningTasks(id,appRegistry[requestedAppId]);
-    var tPG=taskParentGen(eventHandler[id].processName);
     console.log(eventHandler[id].processIcon);
-    ReactDOM.render(<TaskbarIcon name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
+    if(!isRunning)
+    {
+        var tPG=taskParentGen(id);
+        ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
+    }
     ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
 }
 function parentDestroy(id)
@@ -87,8 +101,20 @@ function parentDestroy(id)
     ReactDOM.unmountComponentAtNode(element);
     element.parentNode.removeChild(element);
 }
+function taskParentDestroy(id)
+{
+    let element=document.getElementById(id+'taskParent');
+    ReactDOM.unmountComponentAtNode(element);
+    element.parentNode.removeChild(element);
+}
 export function eventShredder(id)
 {
+    var task=eventHandler[id].processName;
     delete eventHandler[id];
+    var isRunning=isAlreadyRunning(task);
     parentDestroy(id);
+    if(!isRunning)
+    {
+        taskParentDestroy(id);
+    }
 }

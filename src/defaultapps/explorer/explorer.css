@@ -29,7 +29,7 @@
 #Explorer .leftPane{
     border-right: thin solid  #e4e5e8;
     background-color:#f7f7f9;
-    width:100px;
+    flex:0 0 100px;
 }
 #Explorer .rightPane{
     flex-grow:1;
@@ -54,4 +54,30 @@
 #Explorer .iconHolder img{
     width:50px;
     height:50px;
+}
+.button_cont_explorer{
+    height:30px;
+    position: relative;
+    display:flex;
+    user-select: none;
+}
+.button_cont_explorer_button{
+    border-radius:2px;
+    height:30px;
+    width:30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin:auto;
+    text-align: center;
+    font-size:26px;
+}
+.back_button:hover{
+    background-color: blue;
+}
+.back_button:hover>.back_mark{
+    color:white;
+}
+.back_mark{
+    color:blue;
+    transition-duration: 0.4s;
 }
