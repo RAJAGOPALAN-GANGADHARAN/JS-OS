@@ -4,10 +4,10 @@
     height:100%;
     overflow:auto;
 }
-#terminal #bash{
+#terminal #terminal-input{
     color:greenyellow;
- 
 }
+
 #terminal .input {
     color:white;
     background-color:black;

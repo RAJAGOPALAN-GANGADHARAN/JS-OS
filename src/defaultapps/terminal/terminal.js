@@ -20,6 +20,12 @@ export class Terminal extends Component
         }else{
             if(this.state.cmd.length===0){
                 //new line will be implemented
+                var terminalOutput=document.getElementById('terminalOutput');
+                var element = document.createElement("div");
+                element.appendChild(document.createTextNode('user@root:-$'))
+                var breakStatement= document.createElement("br")
+                element.appendChild(breakStatement);
+                terminalOutput.append(element)
             }else
             console.log(this.state.cmd)
         }
@@ -28,11 +34,11 @@ export class Terminal extends Component
     {       
         return(
             <div id="terminal">
-                <div id="bash">
+                <div id="terminal-input">
+                    <div id="terminalOutput"></div>
                     user@root:-$
                     <input className="input" id="input" name="input" type="text" onKeyUp={this.handleKeyPress}/>
                 </div>
-
             </div>
         );
     }
