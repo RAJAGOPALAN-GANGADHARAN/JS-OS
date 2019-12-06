@@ -1,7 +1,5 @@
 import React,{Component} from 'react';
-import Iframe from 'react-iframe';
 import './terminal.css';
-import { commandLineProcessor } from './main';
 export class Terminal extends Component
 {
     constructor(props)
@@ -24,7 +22,7 @@ export class Terminal extends Component
        //let opt=commandLineProcessor(string);
        let lex=string.split(' ');
        var holder=this.state.lineHolder;
-       if(lex[0]=="ls")
+       if(lex[0]==="ls")
        {
            
            var content=this.state.directory.folderContents;
@@ -38,15 +36,15 @@ export class Terminal extends Component
            }
            this.setState({lineHolder:holder});
        }
-       else if(lex[0]=="cd")
+       else if(lex[0]==="cd")
        {
-           if(lex[1]=="..")
+           if(lex[1]==="..")
            {
                 //TO be done
            }
            else
            {
-            var content=this.state.directory.folderContents;
+            let content=this.state.directory.folderContents;
             this.setState({directory:content[lex[1]]});
            }
        }
@@ -80,7 +78,7 @@ export class Terminal extends Component
             </div>
         );
         this.setState({lineHolder:holder},()=>{
-        if(this.lines!=0)
+        if(this.lines!==0)
         {
             var prevLine=document.getElementById(this.state.id+'line'+(this.lines-1));
             prevLine.disabled=true;

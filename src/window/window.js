@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 import './window.css';
-import {idGen,draggerDriver} from '../scripts';
+import { draggerDriver } from '../scripts';
 import {zIndexFrames,incrementZIndexStackTrace} from '../globalvariables';
-import {eventDispatcher, eventShredder} from '../handlers';
+import { eventShredder } from '../handlers';
 export default class Window extends Component
 {
     constructor(props)

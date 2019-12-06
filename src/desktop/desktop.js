@@ -4,9 +4,7 @@ import backgroundImage from '../assests/bgtest.jpg';
 import Fullscreen from 'react-full-screen';
 import Taskbar from './taskbar/taskbar';
 import Panel from './notification/notification';
-import Window from '../window/window';
-import {modify} from '../globalvariables';
-import {eventHandler, defaultAppsInstaller} from '../handlers';
+import { defaultAppsInstaller } from '../handlers';
 import ContextMenu from './contextmenu';
 export default class Desktop extends Component
 {

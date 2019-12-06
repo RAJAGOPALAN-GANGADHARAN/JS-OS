@@ -19,7 +19,7 @@ export default class ContextMenu extends React.Component {
     }
     getParentelement(element)
     {
-        if(element.parentElement.getAttribute('id')=="Explorer")
+        if(element.parentElement.getAttribute('id')==="Explorer")
         {
             var ele=document.createElement('div');
             ele.innerHTML="new folder";

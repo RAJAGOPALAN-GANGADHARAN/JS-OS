@@ -7,11 +7,11 @@ import {folderStructure, fileStructure} from './fileClass';
 export var disk=new folderStructure('root');
 //default folders
 var folder1=new folderStructure('home0');
-for(var x=0;x<9;++x)
+for(let x=0;x<9;++x)
 folder1.addObject(new folderStructure('folder'+x));
 
 disk.addObject(folder1);
-for(var x=1;x<100;++x)
+for(let x=1;x<100;++x)
 disk.addObject(new folderStructure('home'+x));
 
 var file1=new fileStructure('raj','.pdf');

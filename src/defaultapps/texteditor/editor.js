@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Import Brace and the AceEditor Component
-import brace from 'brace';
 import AceEditor from 'react-ace';
 
 // Import a Mode (language)
