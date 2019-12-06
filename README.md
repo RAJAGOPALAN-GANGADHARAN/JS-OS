@@ -8,7 +8,7 @@ An Unified Operating System on the web.[For Demo](https://rajagopalan-gangadhara
   
 ### How to Run Locally :
 1. Clone the Repository
-     `git clone https://github.com/sgpritam/JS-OS.git`
+     `git clone https://github.com/NJACKWinterOfCode/JS-OS.git`
 2. cd into JS-OS
       `cd JS-OS`
 3. Install all dependencies      
