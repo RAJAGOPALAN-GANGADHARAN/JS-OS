@@ -4,7 +4,6 @@ import TaskbarIcon from '../taskbaricon/taskbaricon';
 import {theme_color_panels} from '../../globalvariables';
 import {eventHandler, taskParentGen} from '../../handlers';
 import Time from './time/time';
-import { taskBarPresent } from '../../config';
 import ReactDOM from 'react-dom';
 //import { url } from 'inspector';
 /*

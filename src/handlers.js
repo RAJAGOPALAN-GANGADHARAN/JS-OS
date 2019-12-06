@@ -1,11 +1,11 @@
 import { idGen } from "./scripts";
-import React,{Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Window from "./window/window";
 import Explorer from "./defaultapps/explorer/explorer";
 import { Terminal } from "./defaultapps/terminal/terminal";
 import { disk } from "./filesystem/main";
-import Empty, { Test } from "./misc/misc";
+import { Test } from "./misc/misc";
 import { TimeApp } from "./desktop/taskbar/time/time";
 import Editor from "./defaultapps/texteditor/editor";
 import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
@@ -64,7 +64,7 @@ function isAlreadyRunning(appName)
     console.log(appName);
     for(var task in eventHandler)
     {
-        if(appName==eventHandler[task].processName)
+        if(appName===eventHandler[task].processName)
         return true;
     }
     return false;
