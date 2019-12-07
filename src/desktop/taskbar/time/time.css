@@ -19,15 +19,35 @@
     top:5px;
     right:25px;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1024px) {
     #time-cont{
         width:6%;
+    }
+    #line-1{
+        position: relative;
+        top:2px;
+    }
+    #line-2{
+        margin-right: -30px;
+        position: relative;
+        top:-1px;
+        right:25px;
     }
 }
 @media (orientation:portrait)
 {
     #time-cont{
         width:11%;
+    }
+    #line-1{
+        position: relative;
+        top:2px;
+    }
+    #line-2{
+        margin-right: -30px;
+        position: relative;
+        top:-1px;
+        right:25px;
     }
 }
 #clockCanvas{
