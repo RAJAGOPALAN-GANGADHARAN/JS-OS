@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import './terminal.css';
+import files from '../../filesystem/fs.json'
+import tree from './commands'
 
 export class Terminal extends Component
 {
@@ -25,8 +27,15 @@ export class Terminal extends Component
                 var breakStatement= document.createElement("br")
                 element.appendChild(breakStatement);
                 terminalOutput.append(element)
-            }else
-            console.log(this.state.cmd)
+            }else{
+                console.log(this.state.cmd)
+                if(this.state.cmd === "tree"){
+                    tree(files)  
+                }
+                var doc = document.getElementById('input')
+                doc.value=''
+            }
+            
         }
     }
     render()
