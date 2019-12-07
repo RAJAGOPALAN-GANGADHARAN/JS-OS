@@ -1,0 +1,22 @@
+{
+    "type": "dir", 
+    "name": "~", 
+    "contents": [
+       {
+          "type": "dir", 
+          "name": "FOSS_contribution"
+       }, 
+       {
+          "type": "text", 
+          "name": "README"
+       }, 
+       {
+          "type": "dir", 
+          "name": "competitive_programming"
+       }, 
+       {
+          "type": "dir", 
+          "name": "projects"
+       }
+    ]
+ }
