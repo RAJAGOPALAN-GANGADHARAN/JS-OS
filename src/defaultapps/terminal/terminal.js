@@ -1,7 +1,5 @@
 import React,{Component} from 'react';
-import files from '../../filesystem/fs.json'
 import './terminal.css';
-import tree from './commands'
 
 export class Terminal extends Component
 {
@@ -11,9 +9,8 @@ export class Terminal extends Component
             cmd : ""
         };
     }
-
+    
     handleKeyPress = (e) => {
-        //console.log(e.target.value)
         if(e.key !== 'Enter'){
             if(e.key === 'Backspace'){ 
                 this.state.cmd = this.state.cmd.slice(0,this.state.cmd.length -1)
@@ -22,7 +19,6 @@ export class Terminal extends Component
             }
         }else{
             if(this.state.cmd.length===0){
-                //new line will be implemented
                 var terminalOutput=document.getElementById('terminalOutput');
                 var element = document.createElement("div");
                 element.appendChild(document.createTextNode('user@root:-$'))
@@ -30,12 +26,7 @@ export class Terminal extends Component
                 element.appendChild(breakStatement);
                 terminalOutput.append(element)
             }else
-                console.log(this.state.cmd)
-                if(this.state.cmd === "tree"){
-                    tree(files)  
-                }
-                var doc = document.getElementById('input')
-                doc.value=''
+            console.log(this.state.cmd)
         }
     }
     render()
