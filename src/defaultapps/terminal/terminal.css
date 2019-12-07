@@ -4,6 +4,15 @@
     height:100%;
     overflow:auto;
 }
+#terminal #terminal-input{
+    color:greenyellow;
+}
+
+#terminal .input {
+    color:white;
+    background-color:black;
+    border: 0;
+}
 #terminal .line{
     color:aqua;
     display:flex;
