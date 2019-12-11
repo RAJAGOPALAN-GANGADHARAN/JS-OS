@@ -26,7 +26,7 @@ export var ls = (res) => {
 
 export var cat = (res,arg) => {
     var element = document.createElement("div")
-    element.appendChild(document.createTextNode('user@root:~$ ls'))
+    element.appendChild(document.createTextNode('user@root:~$ cat'))
     var content = document.createElement("br")
     var content2 = document.createElement("br")
     for(let i=0;i<4;i++){

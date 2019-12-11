@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './terminal.css';
 import files from '../../filesystem/fs.json'
-import tree from './commands'
+import * as commands from './commands'
 
 export class Terminal extends Component
 {
