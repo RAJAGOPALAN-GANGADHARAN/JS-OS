@@ -4,15 +4,16 @@
     "contents": [
        {
           "type": "dir", 
-          "name": "FOSS_contribution"
+          "name": "home"
        }, 
        {
           "type": "text", 
-          "name": "README"
+          "name": "README",
+          "content": "You are witnessing the coolest OS made with JS. Authors are @RAJAGOPALAN-GANGADHARAN & @ankingcodes."
        }, 
        {
           "type": "dir", 
-          "name": "competitive_programming"
+          "name": "extra"
        }, 
        {
           "type": "dir", 
