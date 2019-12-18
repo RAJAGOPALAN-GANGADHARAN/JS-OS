@@ -4,7 +4,6 @@ import './taskbar.css';
 import AppLauncher from '../../applauncher/applauncher';
 //test imports
 import { eventDispatcher } from '../../handlers';
-import { idGen } from '../../scripts';
 
 export default class TaskIcon extends Component
 {
@@ -13,7 +12,6 @@ export default class TaskIcon extends Component
         super(props);
         this.assignedEvent=this.assignedEvent.bind(this);
         this.showMiniWindow=this.showMiniWindow.bind(this);
-        console.log(this.props.type);
     }
     /*testSpawner()
     {
@@ -21,7 +19,7 @@ export default class TaskIcon extends Component
     }*/
     assignedEvent(appId)
     {
-        if(this.props.type=="launcher")
+        if(this.props.type==="launcher")
         {
             ReactDOM.render(<AppLauncher/>, document.getElementById('launcher'));
         }
@@ -59,7 +57,7 @@ export default class TaskIcon extends Component
     {
         return(
             <div className="taskicon-cont" onClick={()=>{this.assignedEvent(this.props.name)}} >
-            <img className="taskicon" src={require(`${this.props.location}`)}></img>
+            <img className="taskicon" src={require(`${this.props.location}`)} alt="taskbaricon"></img>
             <div id={this.props.id+"mini"}></div>
             </div>
         );

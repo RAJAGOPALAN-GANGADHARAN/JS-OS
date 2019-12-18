@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import './explorer.css';
-import {  resizeDriver, Stack } from '../../scripts';
-import { disk,fileLogo } from '../../filesystem/main';
+import { disk } from '../../filesystem/main';
 export default class Explorer extends Component
 {
     constructor(props)
@@ -50,7 +49,6 @@ export default class Explorer extends Component
             txt:require('../../desktop/taskbaricon/icons/file_txt.png')
         }
         let paneHolder=[],rightPaneHolder=[];
-        var xaxis=0,yaxis=0,content;
         for(var fcnt in currDisk.folderContents)
         {
             let currentObject=currDisk.folderContents[fcnt];
@@ -60,13 +58,13 @@ export default class Explorer extends Component
                 {currentName}
                 </div>
             )*/
-            if(currentObject.constructor.name=="folderStructure")
+            if(currentObject.constructor.name==="folderStructure")
             {
                 let currentName=currentObject.folderName;
                 //console.log(currentName)
                 rightPaneHolder.push(
                 <div className="iconHolder" onClick={()=>{this.folderSwitcher(currentName)}}>
-                <img src={require('../../desktop/taskbaricon/icons/folder.png')}></img>
+                <img src={require('../../desktop/taskbaricon/icons/folder.png')} alt="iconHolder"></img>
                 {currentName}
                 </div>
                 )
@@ -77,7 +75,7 @@ export default class Explorer extends Component
                 let ext=currentObject.fileExtension.split('.')[1];
                 rightPaneHolder.push(
                 <div className="iconHolder" >
-                <img src={fileLogo[ext]}></img>
+                <img src={fileLogo[ext]} alt="iconHolder"></img>
                 {currentName}
                 </div>
                 )

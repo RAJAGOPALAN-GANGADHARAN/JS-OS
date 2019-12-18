@@ -29,7 +29,7 @@ export default class AppLauncher extends Component
             let appName=appRegistry[appId].processName;
             holder.push(
             <div key={"apps"+holder.length} className="apps" onClick={()=>{this.processStarter(appName)}}>
-                <img src={require("../desktop/taskbaricon/icons/"+iconLoc[2])}></img>
+                <img src={require("../desktop/taskbaricon/icons/"+iconLoc[2])} alt="taskbarIcon"></img>
                 <div className="name">{appName}</div>
             </div>);
         }

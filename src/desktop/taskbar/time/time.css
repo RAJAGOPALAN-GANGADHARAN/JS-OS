@@ -3,7 +3,7 @@
     width:3%;
     float: right;
     color:white;
-    font-size:15px;
+    font-size:13px;
     background-color: black;
 }
 #time-cont:hover{
@@ -14,13 +14,24 @@
     top:5px;
 }
 #line-2{
+    margin-right: -20px;
     position: relative;
-    top:8px;
-    right:20px;
+    top:5px;
+    right:25px;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1024px) {
     #time-cont{
         width:6%;
+    }
+    #line-1{
+        position: relative;
+        top:2px;
+    }
+    #line-2{
+        margin-right: -30px;
+        position: relative;
+        top:-1px;
+        right:25px;
     }
 }
 @media (orientation:portrait)
@@ -28,9 +39,178 @@
     #time-cont{
         width:11%;
     }
+    #line-1{
+        position: relative;
+        top:2px;
+    }
+    #line-2{
+        margin-right: -30px;
+        position: relative;
+        top:-1px;
+        right:25px;
+    }
 }
 #clockCanvas{
     width:100%;
     height:100%;
     background-color:#333;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Droid+Sans+Mono");
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+#TimeApp {
+	display: flex;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background-color: gray;
+	background-image: linear-gradient(62deg, black 50%,gray 90%);
+}
+
+.flipClock {
+	display: flex;
+	justify-content: space-between;
+	width: 500px;
+}
+
+.flipUnitContainer {
+	display: block;
+	position: relative;
+	width: 140px;
+	height: 120px;
+	perspective-origin: 50% 50%;
+	perspective: 300px;
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: 0px 10px 10px -10px grey;
+}
+
+.upperCard, .lowerCard {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	width: 100%;
+	height: 50%;
+	overflow: hidden;
+	border: 1px solid whitesmoke;
+}
+
+.upperCard span, .lowerCard span {
+	font-size: 5em;
+	font-family: "Droid Sans Mono", monospace;
+	font-weight: lighter;
+	color: #333333;
+}
+
+.upperCard {
+	align-items: flex-end;
+	border-bottom: 0.5px solid whitesmoke;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.upperCard span {
+	transform: translateY(50%);
+}
+
+.lowerCard {
+	align-items: flex-start;
+	border-top: 0.5px solid whitesmoke;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.lowerCard span {
+	transform: translateY(-50%);
+}
+
+.flipCard {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	overflow: hidden;
+	backface-visibility: hidden;
+}
+
+.flipCard span {
+	font-family: "Droid Sans Mono", monospace;
+	font-size: 5em;
+	font-weight: lighter;
+	color: #333333;
+}
+
+.flipCard.unfold {
+	top: 50%;
+	align-items: flex-start;
+	transform-origin: 50% 0%;
+	transform: rotateX(180deg);
+	background-color: white;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border: 0.5px solid whitesmoke;
+	border-top: 0.5px solid whitesmoke;
+}
+
+.flipCard.unfold span {
+	transform: translateY(-50%);
+}
+
+.flipCard.fold {
+	top: 0%;
+	align-items: flex-end;
+	transform-origin: 50% 100%;
+	transform: rotateX(0deg);
+	background-color: white;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border: 0.5px solid whitesmoke;
+	border-bottom: 0.5px solid whitesmoke;
+}
+
+.flipCard.fold span {
+	transform: translateY(50%);
+}
+
+.fold {
+	animation: fold 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards;
+	transform-style: preserve-3d;
+}
+
+.unfold {
+	animation: unfold 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards;
+	transform-style: preserve-3d;
+}
+
+@keyframes fold {
+	0% {
+		transform: rotateX(0deg);
+	}
+
+	100% {
+		transform: rotateX(-180deg);
+	}
+}
+
+@keyframes unfold {
+	0% {
+		transform: rotateX(180deg);
+	}
+
+	100% {
+		transform: rotateX(0deg);
+	}
 }

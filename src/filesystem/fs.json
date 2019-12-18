@@ -1,0 +1,23 @@
+{
+    "type": "dir", 
+    "name": "~", 
+    "contents": [
+       {
+          "type": "dir", 
+          "name": "home"
+       }, 
+       {
+          "type": "text", 
+          "name": "README",
+          "content": "You are witnessing the coolest OS made with JS. Authors are @RAJAGOPALAN-GANGADHARAN & @ankingcodes."
+       }, 
+       {
+          "type": "dir", 
+          "name": "extra"
+       }, 
+       {
+          "type": "dir", 
+          "name": "projects"
+       }
+    ]
+ }

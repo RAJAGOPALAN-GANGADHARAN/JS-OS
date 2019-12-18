@@ -4,10 +4,6 @@ var request=require('request');
 export default class Empty extends Component
 {
     //Empty window
-    constructor(props)
-    {
-        super(props);
-    }
     render()
     {
         return(<div></div>);

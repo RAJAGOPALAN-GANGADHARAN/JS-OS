@@ -1,102 +1,60 @@
 import React,{Component} from 'react';
-import Iframe from 'react-iframe';
 import './terminal.css';
-import { commandLineProcessor } from './main';
+import files from '../../filesystem/fs.json'
+import * as commands from './commands'
+
 export class Terminal extends Component
 {
-    constructor(props)
-    {
+    constructor(props){
         super(props);
-        this.state={id:this.props.id,directory:this.props.directory,prevDirectory:null,lineHolder:[]}
-        this.lines=0;
+        this.state = {
+            cmd : ""
+        };
     }
-    componentDidMount()
-    {
-        //var window=document.getElementById(this.state.id);
-        //window.style.borderRadius="5px";
-        //window.querySelector('.header').style.backgroundColor="red";
-        this.element=document.getElementById('terminal');
-        this.newLine();
-    }
-    process(cont)
-    {
-       let string=cont.value;
-       //let opt=commandLineProcessor(string);
-       let lex=string.split(' ');
-       var holder=this.state.lineHolder;
-       if(lex[0]=="ls")
-       {
-           
-           var content=this.state.directory.folderContents;
-           for(let dir in content)
-           {
-               holder.push(
-                <div key={this.state.id+this.lines} className="line">
-                <div className="line">{content[dir].folderName}/</div>
-                </div>
-               );
-           }
-           this.setState({lineHolder:holder});
-       }
-       else if(lex[0]=="cd")
-       {
-           if(lex[1]=="..")
-           {
-                //TO be done
-           }
-           else
-           {
-            var content=this.state.directory.folderContents;
-            this.setState({directory:content[lex[1]]});
-           }
-       }
-       else
-       {
-           holder.push(
-            <div key={this.state.id+this.lines} className="line">
-            <div className="line" style={{color:'red'}}>{lex.join(' ')} is not a valid command</div>
-            </div>
-           )
-       }
-    }
-    enterHouseKeeping=(e)=>{
-        if(e.key === "Enter")
-        {
-            e.preventDefault();
-            var prevLine=document.getElementById(this.state.id+'line'+(this.lines-1));
-            this.process(prevLine);
-            this.newLine();
+    
+    handleKeyPress = (e) => {
+        if(e.key !== 'Enter'){
+            if(e.key === 'Backspace'){ 
+                this.state.cmd = this.state.cmd.slice(0,this.state.cmd.length -1)
+            }else{
+             this.state.cmd = this.state.cmd.concat(e.key)
+            }
+        }else{
+            if(this.state.cmd.length===0){
+                var terminalOutput=document.getElementById('terminalOutput');
+                var element = document.createElement("div");
+                element.appendChild(document.createTextNode('user@root:-$'))
+                var breakStatement= document.createElement("br")
+                element.appendChild(breakStatement);
+                terminalOutput.append(element)
+            }else{
+                if(e.target.value === "tree"){
+                    commands.tree(files)  
+                }
+                if(e.target.value === "ls"){
+                    commands.ls(files)
+                }
+                var regex_cat = /cat/g;
+                var regex_argument = /^\S*\s+(\S+)/;
+                var argument = regex_argument.exec(e.target.value);
+                if(regex_cat.exec(e.target.value)){
+                    commands.cat(files,argument[1])
+                }
+            }
+            
         }
-    }
-    newLine()
-    {
-        console.log('yolo');
-        let holder=this.state.lineHolder;
-        console.log(this.props.directory.folderName)
-        holder.push(
-            <div key={this.state.id+this.lines} className="line">
-                <div className="directory">{this.state.directory.folderName}$</div>
-                <input id={this.state.id+'line'+this.lines} className="type" onKeyPress={this.enterHouseKeeping} autofocus="true"></input>
-            </div>
-        );
-        this.setState({lineHolder:holder},()=>{
-        if(this.lines!=0)
-        {
-            var prevLine=document.getElementById(this.state.id+'line'+(this.lines-1));
-            prevLine.disabled=true;
-            var nextLine=document.getElementById(this.state.id+'line'+(this.lines));
-            nextLine.focus();
-        }
-        this.lines++;
-        });
     }
     render()
-    {
+    {       
         return(
             <div id="terminal">
-              {this.state.lineHolder.map(line=>line)}  
+                <div id="terminal-input">
+                    <div id="terminalOutput"></div>
+                    user@root:-$
+                    <input className="input" id="input" name="input" type="text" onKeyUp={this.handleKeyPress}/>
+                </div>
             </div>
-            );
+        );
     }
-    //<Iframe url="./test.html" width="90%" height="100%"/>
+    
 }
