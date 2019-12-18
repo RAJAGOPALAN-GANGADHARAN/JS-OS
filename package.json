@@ -14,7 +14,7 @@
     "npm": "^6.13.2",
     "react": "^16.4.1",
     "react-ace": "^6.1.4",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.4.2",
     "react-fontawesome": "^1.6.1",
     "react-froala-wysiwyg": "^2.8.4",
     "react-full-screen": "^0.2.2",
