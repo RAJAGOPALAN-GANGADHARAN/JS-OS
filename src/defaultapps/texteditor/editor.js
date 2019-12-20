@@ -1,39 +1,38 @@
 import React from 'react';
+import { render } from 'react-dom';
+import MonacoEditor from 'react-monaco-editor';
 
-// Import Brace and the AceEditor Component
-import AceEditor from 'react-ace';
-
-// Import a Mode (language)
-import 'brace/mode/java';
-
-// Import a Theme (okadia, github, xcode etc)
-import 'brace/theme/github';
-
-export default class Editor extends React.Component {
-
-    constructor(props, context) {
-        super(props, context);
-        
-        this.onChange = this.onChange.bind(this);
+class Editor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      code: '// type your code...',
     }
-
-    onChange(newValue) {
-        console.log('change', newValue);
-    }
-
-    render() {
-        return (
-                <AceEditor
-                    mode="java"
-                    theme="github"
-                    onChange={this.onChange}
-                    name="UNIQUE_ID_OF_DIV"
-                    editorProps={{
-                        $blockScrolling: true
-					}}
-					height="100%"
-					width="100%"
-                />
-        );
-    }
+  }
+  editorDidMount(editor, monaco) {
+    console.log('editorDidMount', editor);
+    editor.focus();
+  }
+  onChange(newValue, e) {
+    console.log('onChange', newValue, e);
+  }
+  render() {
+    const code = this.state.code;
+    const options = {
+      selectOnLineNumbers: true,
+      automaticLayout:true
+    };
+    return (
+      <MonacoEditor
+        language="javascript"
+        theme="vs-dark"
+        value={code}
+        options={options}
+        onChange={this.onChange}
+        editorDidMount={this.editorDidMount}
+      />
+    );
+  }
 }
+
+export default Editor;
