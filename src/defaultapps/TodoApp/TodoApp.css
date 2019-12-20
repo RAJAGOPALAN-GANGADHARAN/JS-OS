@@ -6,7 +6,7 @@
     text-align: center;
 }
 @import url('https://fonts.googleapis.com/css?family=Courier+Prime|Roboto+Condensed&display=swap');
-h1{
+.header-name{
     font-family: 'Courier Prime', monospace;
     font-size: 60px;
     font-weight: bold;
@@ -15,7 +15,7 @@ h1{
     display: inline-block;
 
 }
-h4{
+.small-header-name{
     font-family: 'Roboto Condensed', sans-serif;
     color: rgba(209, 238, 167, 0.835);
 }
@@ -70,7 +70,7 @@ li span:hover {
   color: #e74c3c
 }
 
-button{
+.todoadd{
     background-color: gold;
     color: black;
     font-family: 'Courier Prime', monospace;
@@ -81,6 +81,6 @@ button{
     opacity: 0.9;
     display:inline-block;
 }
-button:hover{
+.todoadd:hover{
     transform: scale(1.05)
 }
