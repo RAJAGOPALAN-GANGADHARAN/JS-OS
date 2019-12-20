@@ -10,6 +10,7 @@ import { TimeApp } from "./desktop/taskbar/time/time";
 import Editor from "./defaultapps/texteditor/editor";
 import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
 import ToDoApp from "./defaultapps/TodoApp/TodoApp";
+import Calculator from "./defaultapps/Calculator/calculator";
 
 
 class runningTasks
@@ -49,6 +50,7 @@ export function defaultAppsInstaller()
     appInstaller('time','./icons/clock.png',<TimeApp/>)
     appInstaller('editor','./icons/notepad.png',<Editor/>)
     appInstaller('TodoApp','./icons/todoapp.jpg',<ToDoApp/>)
+    appInstaller('Calculator','./icons/Calculator.jpg',<Calculator/>)
     console.log(appRegistry);
 }
 function parentGen(id)
