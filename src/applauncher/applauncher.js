@@ -49,10 +49,7 @@ export default class AppLauncher extends Component
     render()
     {
         return(
-            <div id="applauncher">
-            <div className="Header">
-            <button onClick={this.shredder} className="close">X</button>
-            </div>
+            <div id="applauncher" onClick={this.shredder}>
             <div className="appslist">
             {this.state.Appholder}
             </div>
