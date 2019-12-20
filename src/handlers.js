@@ -9,6 +9,8 @@ import { Test } from "./misc/misc";
 import { TimeApp } from "./desktop/taskbar/time/time";
 import Editor from "./defaultapps/texteditor/editor";
 import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
+import ToDoApp from "./defaultapps/TodoApp/TodoApp";
+
 
 class runningTasks
 {
@@ -46,6 +48,7 @@ export function defaultAppsInstaller()
     appInstaller('terminal','./icons/terminal.png',<Terminal directory={disk}/>);
     appInstaller('time','./icons/clock.png',<TimeApp/>)
     appInstaller('editor','./icons/notepad.png',<Editor/>)
+    appInstaller('TodoApp','./icons/todoapp.jpg',<ToDoApp/>)
     console.log(appRegistry);
 }
 function parentGen(id)

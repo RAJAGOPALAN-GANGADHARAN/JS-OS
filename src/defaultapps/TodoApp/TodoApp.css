@@ -1,0 +1,86 @@
+#TodoApp{
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color: black;
+    text-align: center;
+}
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Roboto+Condensed&display=swap');
+h1{
+    font-family: 'Courier Prime', monospace;
+    font-size: 60px;
+    font-weight: bold;
+    color: greenyellow;
+    margin: 0 auto;
+    display: inline-block;
+
+}
+h4{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: rgba(209, 238, 167, 0.835);
+}
+
+input{
+    width: 50%;
+	height: 60px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #34495e;
+	outline: none;
+	font: 300 28px 'Ubuntu', sans-serif;
+	padding: 20px;
+    color: #b4cee9;
+    display:inline-block;
+}
+.list {
+	width: 90%;
+    margin: 0 auto;
+}
+.task {
+	width: 90%;
+	height: 60px;
+	line-height: 60px;
+	font-size: 20px;
+	padding: 0 20px;
+	color: #79f58e88;
+    transition: all .3s ease;
+}
+.task:hover {
+	background: rgba(64, 117, 95, 0.726);
+	cursor: pointer;
+}
+
+.task:hover span{
+	opacity: 1;
+}
+
+.done {
+	text-decoration: line-through;
+	color: #bdc3c7;
+}
+
+li span {
+  float: right;
+  color: #c0392b;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+li span:hover {
+  color: #e74c3c
+}
+
+button{
+    background-color: gold;
+    color: black;
+    font-family: 'Courier Prime', monospace;
+    font-size: 20px;
+    height: 50px;
+    width: 70px;
+    border-width: 0em;
+    opacity: 0.9;
+    display:inline-block;
+}
+button:hover{
+    transform: scale(1.05)
+}
