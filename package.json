@@ -36,6 +36,7 @@
     "jest": "20.0.4",
     "jquery": "^3.4.1",
     "monaco-editor": "^0.18.1",
+    "monaco-editor-webpack-plugin": "^1.7.0",
     "npm": "^6.13.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
