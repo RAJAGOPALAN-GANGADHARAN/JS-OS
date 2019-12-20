@@ -44,7 +44,7 @@
     "raf": "3.4.0",
     "react": "^16.4.1",
     "react-ace": "^6.1.4",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^10.0.0",
     "react-dom": "^16.4.2",
     "react-fontawesome": "^1.6.1",
     "react-froala-wysiwyg": "^2.8.4",
