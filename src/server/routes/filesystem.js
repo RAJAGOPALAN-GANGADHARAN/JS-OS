@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../database')
 
 //display all files
-router.get('/show', function(req,res){
+router.get('/showfile', function(req,res){
     let file = db.File.find()
     file.then(function(f){
         res.json(f)
