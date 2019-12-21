@@ -45,10 +45,10 @@ class TodoApp extends Component{
     
         return (
           <div id="TodoApp">
-            <h1>TO-DO APP</h1>
-            <h4>exclusively built for JS-OS</h4>
+            <h1 className="header-name">TO-DO APP</h1>
+            <h4 className="small-header-name">exclusively built for JS-OS</h4>
             <input className="input" value={input} onChange={this.handleInput} placeholder="type a Todo.." />
-            <button onClick={this.addTodo}>add</button>
+            <button className="todoadd" onClick={this.addTodo}>add</button>
             <List list={list} onDelete={this.deleteTodo} />
           </div>
         );
