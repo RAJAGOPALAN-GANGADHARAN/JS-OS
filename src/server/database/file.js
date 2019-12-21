@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const Directory = require("directory")
+const Directory = require("./directory")
 
 const fileSchema = new mongoose.Schema({
     Name : {
