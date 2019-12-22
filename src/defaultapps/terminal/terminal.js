@@ -8,10 +8,10 @@ export class Terminal extends Component
     constructor(props){
         super(props);
         this.state = {
-            cmd : ""
+            cmd : "",
+            files : []
         };
     }
-    
     handleKeyPress = (e) => {
         if(e.key !== 'Enter'){
             if(e.key === 'Backspace'){ 
@@ -44,6 +44,26 @@ export class Terminal extends Component
             
         }
     }
+    componentWillMount(){
+        fetch("http://localhost:3020/fs/showfile")
+        .then(data => data.json())
+        .then(file => {
+            let x
+            for(x of file){
+                console.log(x.Name)
+            }
+        })
+        fetch("http://localhost:3020/fs/showdir")
+        .then(data => data.json())
+        .then(file => {
+            let x
+            for(x of file){
+                console.log(x.Name)
+            }
+        })
+       
+        
+    }
     render()
     {       
         return(
@@ -51,7 +71,7 @@ export class Terminal extends Component
                 <div id="terminal-input">
                     <div id="terminalOutput"></div>
                     user@root:-$
-                    <input className="input" id="input" name="input" type="text" onKeyUp={this.handleKeyPress}/>
+                    <input className="inputcommand" id="input" name="input" type="text" onKeyUp={this.handleKeyPress}/>
                 </div>
             </div>
         );

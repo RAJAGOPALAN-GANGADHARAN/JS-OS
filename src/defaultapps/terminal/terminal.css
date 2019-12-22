@@ -8,8 +8,10 @@
     color:greenyellow;
 }
 
-#terminal .input {
+#terminal .inputcommand {
+    left: 0;
     color:white;
+    font-size: 15px;
     background-color:black;
     border: 0;
 }
