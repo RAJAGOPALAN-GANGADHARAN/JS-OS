@@ -56,7 +56,27 @@ export var ls = (res) => {
         }
     }) 
 }
+//detect touch command and string after space as filename
+//pass filename here in touch 
+export var touch = (filename) => {
+    fetch("http://localhost:3020/fs/createFile",{
+        method: 'POST',
+        body: JSON.stringify({Name: filename}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(data => console.log(data.json()))
+}
 
+export var mkdir = (dirName) => {
+    fetch("http://localhost:3020/fs/createDir",{
+        method: 'POST',
+        body: JSON.stringify({Name: dirName}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(data => console.log(data.json()))
+}
 export var cat = (res,arg) => {
     var element = document.createElement("div")
     element.appendChild(document.createTextNode('user@root:~$ cat'))
