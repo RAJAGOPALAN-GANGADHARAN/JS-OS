@@ -27,9 +27,7 @@
     grid-gap: 2px;
     background-color: var(--dark-gray);
     border: 1px solid var(--dark-gray);
-    border-top-left-radius: 15px;
     overflow: hidden;
-    box-shadow: 6px 6px 15px 1px rgba(24, 89, 125, .5);
 }
 .calculator__result {
     grid-column: 1 / span 4;
@@ -130,6 +128,10 @@
 .calculator__btn--equal:hover {
     background-color: var(--light-orange);
 }
+.calculator__list--style{
+    list-style: none;
+}
+
 @keyframes border-animation {
     0% {
         opacity: 0;
