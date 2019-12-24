@@ -192,7 +192,7 @@ class Calculator extends React.Component {
 			history: []
     })
   }
-
+	
 
   render() {
 		
@@ -210,15 +210,13 @@ class Calculator extends React.Component {
     }
 
     return (
-
-			<div className="calculator">
-				<span className="calculator__result" >{result}</span>
-				
+		
+			<div className="calculator" >
+				<span className="calculator__result" onKeyPress={(e) => this.handleKeyPress(e)}>{result}</span>
 				<ul className={`calculator__history ${!this.state.history.length > 0 ? 'is-hide' : ''}`} >
 						{this.state.history != null ? 
-							this.state.history.map((value, i) => <li key={i}>{value}</li>) : null}
+							this.state.history.map((value, i) => <li className='calculator__list--style' key={i}>{value}</li>) : null}
 				</ul>
-
 				<Button onClick={(e) => this.handleNumber(e, 1)}>1</Button>
 				<Button onClick={(e) => this.handleNumber(e, 2)}>2</Button>
 				<Button onClick={(e) => this.handleNumber(e, 3)}>3</Button>
@@ -241,7 +239,7 @@ class Calculator extends React.Component {
 				<Button onClick={(e) => this.handleReset(e)} extraClass='calculator__btn--reset'>C</Button>
 				<Button onClick={(e) => this.handleResult(e,'=')} extraClass='calculator__btn--equal'>=</Button>
 			</div>
-			
+		
     );
   }
 }
