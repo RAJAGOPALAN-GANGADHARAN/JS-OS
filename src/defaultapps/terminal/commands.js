@@ -77,20 +77,27 @@ export var mkdir = (dirName) => {
         }
     }).then(data => console.log(data.json()))
 }
-export var cat = (res,arg) => {
+
+export var cat = (fileName) => {
+    console.log(fileName)
     var element = document.createElement("div")
     element.appendChild(document.createTextNode('user@root:~$ cat'))
     var content = document.createElement("br")
     var content2 = document.createElement("br")
-    for(let i=0;i<4;i++){
-        if(res.contents[i].name === arg){
-            console.log(res.contents[i].content)
-            var terminalOutput=document.getElementById('terminalOutput');
-            element.appendChild(content)
-            element.appendChild(document.createTextNode(res.contents[i].content))
-            terminalOutput.append(element)
-            terminalOutput.appendChild(content2)
-
+    fetch("http://localhost:3020/fs/showfile")
+    .then(data => data.json())
+    .then(file => {
+        let x 
+        for(x of file){
+            if(x.Name===fileName){
+                console.log(x.Content)
+                var terminalOutput=document.getElementById('terminalOutput');
+                element.appendChild(content)
+                element.appendChild(document.createTextNode(x.Content))
+                terminalOutput.append(element)
+                terminalOutput.appendChild(content2)
+            }
         }
-    }
+    })
 }
+
