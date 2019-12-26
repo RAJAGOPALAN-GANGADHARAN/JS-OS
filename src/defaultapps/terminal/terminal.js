@@ -42,6 +42,14 @@ export class Terminal extends Component
                 if(regex_cat.exec(e.target.value)){
                     commands.cat(argument[1])
                 }
+                var regex_rm = /rm/g;
+                var regex_argument = /^\S*\s+(\S+)/;
+                var argument = regex_argument.exec(e.target.value)
+                if(regex_rm.exec(e.target.value)){
+                    commands.rm(argument[1])
+                }
+
+
                 var regex_touch = /touch/g
                 argument = regex_argument.exec(e.target.value)
                 if(regex_touch.exec(e.target.value)){
