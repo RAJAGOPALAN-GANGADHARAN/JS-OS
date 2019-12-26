@@ -33,4 +33,14 @@ router.post('/createDir',function(req,res){
         res.json(newDir)
     })
 })
+
+//deleting a file 
+router.delete('/deleteFile', function(req,res){
+    console.log(req.body)
+    db.File.findOneAndDelete(req.body)
+    .then(function(f){
+        res.json(f)
+    })
+})
+//deleting a directory
 module.exports = router

@@ -101,3 +101,15 @@ export var cat = (fileName) => {
     })
 }
 
+export var rm = (fileName) => {
+    console.log(fileName)
+    fetch("http://localhost:3020/fs/deleteFile",{
+        method: 'DELETE',
+        body: JSON.stringify({Name: fileName}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(data => data.json())
+    .then(file => console.log(file))
+}
