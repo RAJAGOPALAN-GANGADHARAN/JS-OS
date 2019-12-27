@@ -1,83 +1,37 @@
-#Explorer {
-    user-select: none;
-    height:100%;
-    position: relative;
-    display:flex;
-    overflow: hidden;
+.left-pane{
+ background-color: gray;
+ margin-right: 80%;
+ margin-bottom: 2.5px;
+ margin-top: 2.5px;
+ cursor: pointer;
 }
-
-#Explorer .iconStrip{
-    width:100%;
-    height:30px;
-    font-size:100%;
-    color:white;
-    display: flex;
-    
+.left-pane li{
+    font-style: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    list-style-type: none;
+    margin-right: -50px;
+    border-width: 3px;
+ border-color: black;
+ border-style: solid;
 }
-#Explorer .iconStrip .icon {
-    width:30px;
-    height: 30px;
+.left-pane li:hover{
+    background-color: rgb(51, 50, 50);
+    border-width: 3px;
+ border-color: black;
+ border-style: solid;
 }
-#Explorer .iconStrip:hover{
-    background-color: blue;
+.left-pane:hover{
+    background-color: rgb(51, 50, 50);
+    color: white;
+    border-width: 3px;
+ border-color: black;
+ border-style: solid;
 }
-#Explorer .iconStrip .icon img {
-    max-width:70%;
-    max-height: 70%;
-
-}
-#Explorer .leftPane{
-    border-right: thin solid  #e4e5e8;
-    background-color:#f7f7f9;
-    flex:0 0 100px;
-}
-#Explorer .rightPane{
-    flex-grow:1;
-    vertical-align: top;
-    display:flex;
-    flex-wrap: wrap;
-    overflow-y:auto;
-    
-}
-#Explorer .iconHolder
-{
-    display:flex;
-    flex:0 0 100px;
-    padding:20px;
-    flex-direction: column;
-}
-#Explorer .iconHolder:hover
-{
-    background-color:blue;
-    opacity:0.8;
-}
-#Explorer .iconHolder img{
-    width:50px;
-    height:50px;
-}
-.button_cont_explorer{
-    height:30px;
-    position: relative;
-    display:flex;
-    user-select: none;
-}
-.button_cont_explorer_button{
-    border-radius:2px;
-    height:30px;
-    width:30px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    margin:auto;
-    text-align: center;
-    font-size:26px;
-}
-.back_button:hover{
-    background-color: blue;
-}
-.back_button:hover>.back_mark{
-    color:white;
-}
-.back_mark{
-    color:blue;
-    transition-duration: 0.4s;
+.left-pane-slide{
+ background-color: gray;
+ margin-right: 80%;
+ border-width: 3px;
+ border-color: black;
+ border-style: solid;
+ height:100%;
 }
