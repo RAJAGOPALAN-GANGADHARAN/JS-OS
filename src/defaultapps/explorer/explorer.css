@@ -4,6 +4,17 @@
     margin-right: 4%;
     background-color: gray;
 }
+.menu-bar input{
+    background-color: white;
+    height: 20px;
+}
+.menu-bar button{
+    background-color: rgba(179, 57, 179, 0.705);
+    margin-left: 10px;
+    color:white;
+    border-width: 0px 0px 0px 0px;
+    padding: 3px 3px 3px 3px;
+}
 .icon-and-name img{
     height: 35%;
     width: 35%;
@@ -25,7 +36,7 @@
     grid-template-columns: auto auto auto;
     margin-left: 100px;
     margin-right: 20px;
-    margin-top: -370px;
+    margin-top: -380px;
     list-style: none;
 }
 .create-button{
@@ -50,6 +61,7 @@
     border-bottom: 0px;
     border-color: black;
     padding-bottom: 49%;
+    height: 95%;
 }
 .files{
     font-family: 'Courier New', Courier, monospace;
