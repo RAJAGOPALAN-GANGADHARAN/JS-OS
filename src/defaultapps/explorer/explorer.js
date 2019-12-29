@@ -1,11 +1,37 @@
 import React,{Component} from 'react'
 import './explorer.css'
+import folderImg from "../../desktop/taskbaricon/icons/file_txt.png"
+import fileImg from "../../desktop/taskbaricon/icons/folder.png"
 
 class LeftPane extends Component{
     render(){
         return(
             <div className = "left-pane">
-                <li>{this.props.name}</li>
+                <li className = "files">{this.props.name}</li>
+            </div>
+        )
+    }
+}
+class Files extends Component{
+    render(){
+        return(
+            <div className="icon-and-name">
+                <li>
+                    <img src={folderImg}/>
+                    <p>{this.props.name}</p>
+                </li>
+            </div>
+        )
+    }
+}
+class Directory extends Component{
+    render(){
+        return(
+            <div className="icon-and-name">
+                <li>
+                    <img src={fileImg}/>
+                    <p>{this.props.name}</p>
+                </li>
             </div>
         )
     }
@@ -16,7 +42,9 @@ class Explorer extends Component{
         super(props);
         this.state = {
             files : [],
-            directories : []
+            directories : [],
+            filename : "",
+            directoryname : ""
         }
     }
     componentWillMount(){
@@ -41,27 +69,67 @@ class Explorer extends Component{
             })
         }})
     }
-
+    createFile(){
+        return(
+            <div className="dialog-box">
+                <form>
+                    <label>
+                        Name of new file:
+                        <textarea value={this.state.filename}/>
+                    </label>
+                    <input type="submit"/>
+                </form>
+            </div>
+        )
+    }
     render(){
         console.log(this.state.files.length, this.state.directories.length)
         return(
-                <div className = "left-pane-slide">
-                {this.state.directories.map(
-                    f => {
-                        return(
-                           <LeftPane name={f}/>
-                        )
-                    }
-                )}
-                {this.state.files.map(
-                    f => {
-                        return(
-                           <LeftPane name={f}/>
-                        )
-                    }
-                )}
+            <div className="window">
+                <div className="menu-bar">
+                    <button className="create-button">
+                        New
+                    </button>
+                    <button className="delete-button">
+                        Delete
+                    </button>
                 </div>
-            
+                    <div className="tree">
+                    {this.state.directories.map(
+                        f => {
+                            return(
+                            <LeftPane name={f}/>
+                            )
+                        }
+                    )}
+                    {this.state.files.map(
+                        f => {
+                            return(
+                            <LeftPane name={f}/>
+                            )
+                        }
+                    )}
+                    </div>
+                    <div className="right-side">
+                        <ul className="file-list">
+                        {this.state.files.map(
+                            f => {
+                                return(
+                                <Files name={f}/>
+                                )
+                            }
+                        )}
+                        {this.state.directories.map(
+                            f => {
+                                return(
+                                <Directory name={f}/>
+                                )
+                            }
+                        )}
+                        </ul>
+                    </div>
+               
+            </div>
         )
 
     }

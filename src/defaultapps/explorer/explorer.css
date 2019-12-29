@@ -1,37 +1,64 @@
-.left-pane{
- background-color: gray;
- margin-right: 80%;
- margin-bottom: 2.5px;
- margin-top: 2.5px;
- cursor: pointer;
+.menu-bar{
+    margin-left: -20px;
+    margin-top: -30px;
+    margin-right: 4%;
+    background-color: gray;
 }
-.left-pane li{
-    font-style: normal;
+.icon-and-name img{
+    height: 35%;
+    width: 35%;
+    margin-left: 50px;
+}
+.icon-and-name li{
+    margin-left: -30px;
+    padding-right: 50px;
+}
+.icon-and-name p{
+    margin-left: 60px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    list-style-type: none;
-    margin-right: -50px;
-    border-width: 3px;
- border-color: black;
- border-style: solid;
 }
-.left-pane li:hover{
-    background-color: rgb(51, 50, 50);
-    border-width: 3px;
- border-color: black;
- border-style: solid;
+.icon-and-name:hover{
+    background-color: rgba(127, 244, 255, 0.197);
 }
-.left-pane:hover{
-    background-color: rgb(51, 50, 50);
-    color: white;
-    border-width: 3px;
- border-color: black;
- border-style: solid;
+.file-list{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 100px;
+    margin-right: 20px;
+    margin-top: -370px;
+    list-style: none;
 }
-.left-pane-slide{
- background-color: gray;
- margin-right: 80%;
- border-width: 3px;
- border-color: black;
- border-style: solid;
- height:100%;
+.create-button{
+    background-color: blueviolet;
+    color: wheat;
+    padding: 4px 4px 4px 4px;
+    border-color: gray;
+}
+.delete-button{
+    background-color: blueviolet;
+    color: wheat;
+    border-color: gray;
+    padding: 4px 4px 4px 4px;
+}
+.tree{
+    background-color: rgba(128, 128, 128, 0.541);
+    border-style: solid;
+    margin-left: -20px;
+    margin-right: 80%;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-color: black;
+    padding-bottom: 49%;
+}
+.files{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.65);
+    list-style: none;
+    padding-left: 10px;
+}
+.files:hover{
+    background-color: rgba(0, 0, 0, 0.479);
+    color: rgb(208, 220, 231);
 }
