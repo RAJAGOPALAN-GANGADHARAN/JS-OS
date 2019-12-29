@@ -20,7 +20,7 @@
     color: rgba(209, 238, 167, 0.835);
 }
 
-input{
+.input{
     width: 50%;
 	height: 60px;
 	background: none;

@@ -43,10 +43,12 @@ class Explorer extends Component{
         this.state = {
             files : [],
             directories : [],
-            filename : "",
-            directoryname : ""
+            isOpen: false,
+            create: false,
+            delete: false
         }
     }
+
     componentWillMount(){
         fetch("http://localhost:3020/fs/showfile")
         .then(data => data.json())
@@ -69,71 +71,158 @@ class Explorer extends Component{
             })
         }})
     }
-    createFile(){
-        return(
-            <div className="dialog-box">
-                <form>
-                    <label>
-                        Name of new file:
-                        <textarea value={this.state.filename}/>
-                    </label>
-                    <input type="submit"/>
-                </form>
-            </div>
-        )
+
+    handleChange(){
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+        console.log('opened')
     }
-    render(){
-        console.log(this.state.files.length, this.state.directories.length)
-        return(
-            <div className="window">
-                <div className="menu-bar">
-                    <button className="create-button">
-                        New
-                    </button>
-                    <button className="delete-button">
-                        Delete
-                    </button>
-                </div>
-                    <div className="tree">
-                    {this.state.directories.map(
-                        f => {
-                            return(
-                            <LeftPane name={f}/>
-                            )
-                        }
-                    )}
-                    {this.state.files.map(
-                        f => {
-                            return(
-                            <LeftPane name={f}/>
-                            )
-                        }
-                    )}
+
+    handleCreate(){
+        this.setState({
+            isOpen: !this.state.isOpen,
+            create: !this.state.create
+        })
+        
+    }
+
+    handleDelete(){
+        this.setState({
+            isOpen: !this.state.isOpen,
+            delete: !this.state.delete
+        })
+        console.log(this.state.delete)
+    }
+
+    createFile(){
+        var f = document.getElementById("fileNameInput").value
+        console.log(f)
+        fetch("http://localhost:3020/fs/createFile",{
+        method: 'POST',
+        body: JSON.stringify({Name: f}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(data => console.log(data.json()))
+    }
+
+    deleteFile(){
+        var f = document.getElementById("fileNameInput").value
+        console.log(f)
+        fetch("http://localhost:3020/fs/deleteFile",{
+        method: 'DELETE',
+        body: JSON.stringify({Name: f}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(data => data.json())
+    .then(file => console.log(file))
+    }
+    
+    render(){  
+        const {isOpen} = this.state
+            if(!isOpen)
+            return(
+                <div className="window">
+                    <div className="menu-bar">
+                        <button className="create-button" onClick={()=>this.handleCreate()}>
+                            New
+                        </button>
+                        <button className="delete-button" onClick={()=>this.handleDelete()}>
+                            Delete
+                        </button>
                     </div>
-                    <div className="right-side">
-                        <ul className="file-list">
-                        {this.state.files.map(
-                            f => {
-                                return(
-                                <Files name={f}/>
-                                )
-                            }
-                        )}
+                        <div className="tree">
                         {this.state.directories.map(
                             f => {
                                 return(
-                                <Directory name={f}/>
+                                <LeftPane name={f}/>
                                 )
                             }
                         )}
-                        </ul>
+                        {this.state.files.map(
+                            f => {
+                                return(
+                                <LeftPane name={f}/>
+                                )
+                            }
+                        )}
+                        </div>
+                        <div className="right-side">
+                            <ul className="file-list">
+                            {this.state.files.map(
+                                f => {
+                                    return(
+                                    <Files name={f}/>
+                                    )
+                                }
+                            )}
+                            {this.state.directories.map(
+                                f => {
+                                    return(
+                                    <Directory name={f}/>
+                                    )
+                                }
+                            )}
+                            </ul>
+                        </div>
+                   
+                </div>
+            )
+            else
+            return(
+                <div className="window">
+                    <div className="menu-bar">
+                        <input id="fileNameInput" placeholder="enter name of file"/>
+                        <button onClick={()=>{
+                            this.handleChange();
+                            if(this.state.create===true)
+                            this.createFile()
+                            if(this.state.delete===true)
+                            this.deleteFile()   
+                        }}>OK</button>
                     </div>
-               
-            </div>
-        )
-
+                        <div className="tree">
+                        {this.state.directories.map(
+                            f => {
+                                return(
+                                <LeftPane name={f}/>
+                                )
+                            }
+                        )}
+                        {this.state.files.map(
+                            f => {
+                                return(
+                                <LeftPane name={f}/>
+                                )
+                            }
+                        )}
+                        </div>
+                        <div className="right-side">
+                            <ul className="file-list">
+                            {this.state.files.map(
+                                f => {
+                                    return(
+                                    <Files name={f}/>
+                                    )
+                                }
+                            )}
+                            {this.state.directories.map(
+                                f => {
+                                    return(
+                                    <Directory name={f}/>
+                                    )
+                                }
+                            )}
+                            </ul>
+                        </div>
+                
+                </div>
+            )
+       
     }
 }
 
 export default Explorer
-
