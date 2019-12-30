@@ -192,7 +192,35 @@ class Calculator extends React.Component {
 			history: []
     })
   }
-	
+  handleKeyPress = (e) => {
+		
+		console.log(e.key);
+		if(e.key>0&&e.key<9)
+		{this.handleNumber(e,e.key);}
+		if(e.key=='+'){
+			this.handleOperator(e,e.key);
+		}
+		if(e.key=='-'){
+			this.handleOperator(e,e.key);
+		}
+		if(e.key=='/'){
+			this.handleOperator(e,e.key);
+		}
+		if(e.key=='*'){
+			this.handleOperator(e,e.key);
+		}
+		if(e.key=='.'){
+			this.handleDecimal(e);
+		}
+		if(e.key=='Enter'){
+			this.handleResult(e,'=');
+		}
+		if(e.key=='c'||e.key=='C'){
+			this.handleReset(e);
+		}
+		
+		this.div.focus();
+	}
 
   render() {
 		
@@ -211,7 +239,7 @@ class Calculator extends React.Component {
 
     return (
 		
-			<div className="calculator" >
+			<div className="calculator" onKeyDown={(e) => this.handleKeyPress(e)} tabIndex="1" ref={(c) => {this.div = c;}}>
 				<span className="calculator__result" onKeyPress={(e) => this.handleKeyPress(e)}>{result}</span>
 				<ul className={`calculator__history ${!this.state.history.length > 0 ? 'is-hide' : ''}`} >
 						{this.state.history != null ? 
