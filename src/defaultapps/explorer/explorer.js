@@ -2,6 +2,9 @@ import React,{Component} from 'react'
 import './explorer.css'
 import folderImg from "../../desktop/taskbaricon/icons/file_txt.png"
 import fileImg from "../../desktop/taskbaricon/icons/folder.png"
+import Editor from '../texteditor/editor'
+import '../../handlers'
+import { eventDispatcher } from '../../handlers'
 
 class LeftPane extends Component{
     render(){
@@ -13,10 +16,31 @@ class LeftPane extends Component{
     }
 }
 class Files extends Component{
+    handleClick(name){
+        //get the filename
+        //send the filename as a prop and launch the editor
+        //fetch the contents and append to initial code in editor
+        //just like cat in terminal
+        console.log(name)
+        fetch("http://localhost:3020/fs/showfile")
+        .then(data => data.json())
+        .then(file => {
+            let x 
+            for(x of file){
+                if(x.Name===name){
+                    console.log(x.Content)
+                    eventDispatcher('editor',x.Content)
+                }
+            }
+        })
+        
+    }
+    
     render(){
+        const {name} = this.props
         return(
-            <div className="icon-and-name">
-                <li>
+            <div className="icon-and-name" >
+                <li onClick={()=>this.handleClick(name)}>
                     <img src={folderImg}/>
                     <p>{this.props.name}</p>
                 </li>

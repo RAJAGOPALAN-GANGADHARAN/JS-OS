@@ -12,17 +12,19 @@ import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
 import ToDoApp from "./defaultapps/TodoApp/TodoApp";
 import Calculator from "./defaultapps/Calculator/calculator";
 
-
 class runningTasks
 {
-    constructor(runningId,appData)
+    constructor(runningId,appData,code)
     {
         this.id=runningId;
         this.iconData=appData.processIcon;
         this.processName=appData.processName;
         this.Source=appData.Source;
+        this.code = code;
         console.log(this.id);
+        //console.log(this.code,"Inside contructor")
     }
+    
 }
 class appData
 {
@@ -31,6 +33,7 @@ class appData
         this.processName=name;
         this.processIcon=icon;
         this.Source=Source;
+        console.log('here')
     }
 }
 export var appRegistry={};//installed apps track
@@ -44,6 +47,7 @@ export function appInstaller(name,icon,Source)
 }
 export function defaultAppsInstaller()
 {
+    console.log('Here now')
     appInstaller('test','./icons/browser.png',<Test/>);
     appInstaller('explorer','./icons/folder.png',<Explorer/>);
     appInstaller('terminal','./icons/terminal.png',<Terminal directory={disk}/>);
@@ -87,18 +91,36 @@ export function taskParentGen(id)
     taskbar.appendChild(element);
     return element;
 }
-export function eventDispatcher(requestedAppId)
+export function eventDispatcher(requestedAppId,content)
 {
     let id=idGen(10);
     var isRunning=isAlreadyRunning(appRegistry[requestedAppId].processName)
-    eventHandler[id]=new runningTasks(id,appRegistry[requestedAppId]);
-    console.log(eventHandler[id].processIcon);
-    if(!isRunning)
-    {
-        var tPG=taskParentGen(id);
-        ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
+    //may add a if statement here 
+    if(requestedAppId==='editor'){
+        console.log(content)
+        eventHandler[id] = new runningTasks(id,appRegistry[requestedAppId],content)
+        if(!isRunning)
+        {
+            var tPG=taskParentGen(id);
+            console.log('here')
+            ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
+        }
+        ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
+
+    }else{
+        eventHandler[id]=new runningTasks(id,appRegistry[requestedAppId]);
+        console.log(eventHandler[id]);
+            if(!isRunning)
+        {
+            var tPG=taskParentGen(id);
+            console.log('here')
+            ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
+        }
+        console.log('here')
+        ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
+        console.log('here')
     }
-    ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
+    
 }
 function parentDestroy(id)
 {
@@ -123,3 +145,4 @@ export function eventShredder(id)
         taskParentDestroy(id);
     }
 }
+
