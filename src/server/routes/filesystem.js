@@ -43,4 +43,21 @@ router.delete('/deleteFile', function(req,res){
     })
 })
 //deleting a directory
+
+
+
+
+//updating a file
+router.put('/updateFile', function(req,res){
+    console.log(req.body)
+    db.File.findOneAndUpdate(req.body)
+    .then(function(f){
+        res.json(f)
+    })
+})
 module.exports = router
+
+
+
+
+
