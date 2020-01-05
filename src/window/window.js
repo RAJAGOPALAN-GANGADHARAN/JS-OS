@@ -93,7 +93,7 @@ export default class Window extends Component
                 <div className="content">
                 {
                     React.cloneElement(this.props.source,
-                    {id:this.state.id})
+                    {id:this.state.id, value:this.props.value})
                 }
                 </div>
                 

@@ -89,9 +89,6 @@ export function taskParentGen(id)
 }
 export function eventDispatcher(requestedAppId,content)
 {
-    if(requestedAppId==='editor'){
-        appInstaller('editor','./icons/notepad.png',<Editor value={content}/>)
-    }
     let id=idGen(10);
     var isRunning=isAlreadyRunning(appRegistry[requestedAppId].processName)
     //may add a if statement here 
@@ -102,7 +99,7 @@ export function eventDispatcher(requestedAppId,content)
             var tPG=taskParentGen(id);
             ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
         }
-        ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
+        ReactDOM.render(<Window id={id} source={eventHandler[id].Source} value={content}/>,parentGen(id));
     
 }
 function parentDestroy(id)
