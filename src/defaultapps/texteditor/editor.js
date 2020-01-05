@@ -82,6 +82,8 @@ class Editor extends React.Component {
       selectOnLineNumbers: true,
       automaticLayout:true
     };
+    const {value} = this.props
+    console.log(value)
     return (
         <div>
           <div>
@@ -94,7 +96,7 @@ class Editor extends React.Component {
               id="edit"
               language="javascript"
               theme="vs-dark"
-              value={code}
+              value={value===undefined?code:value}
               options={options}
               onChange={this.onChange}
               editorDidMount={this.editorDidMount}
