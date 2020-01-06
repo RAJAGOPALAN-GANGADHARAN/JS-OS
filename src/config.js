@@ -1,1 +1,1 @@
-export var taskBarPresent=['explorer','editor']
+export var taskBarPresent=["explorer","editor"]

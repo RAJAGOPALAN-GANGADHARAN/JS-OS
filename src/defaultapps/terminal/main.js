@@ -1,6 +1,6 @@
 function lexer(str)
 {
-    /*var lex=str.,tok='';
+	/*var lex=str.,tok='';
     for(let x=0;x<str.length;++x)
     {
         if(str[x]!=' ')
@@ -18,11 +18,11 @@ function lexer(str)
     }
     return lex;
     */
-   let lex=str.split(' ');
-   return lex;
+	let lex=str.split(" ")
+	return lex
 }
 export function commandLineProcessor(string)
 {
-    let lex=lexer(string);
-    return lex;
+	let lex=lexer(string)
+	return lex
 }

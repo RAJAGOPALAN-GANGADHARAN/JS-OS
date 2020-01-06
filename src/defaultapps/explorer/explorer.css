@@ -1,83 +1,76 @@
-#Explorer {
-    user-select: none;
-    height:100%;
-    position: relative;
-    display:flex;
-    overflow: hidden;
+.menu-bar{
+    margin-left: -20px;
+    margin-top: -30px;
+    margin-right: 4%;
+    background-color: gray;
 }
-
-#Explorer .iconStrip{
-    width:100%;
-    height:30px;
-    font-size:100%;
+.menu-bar input{
+    background-color: white;
+    height: 20px;
+}
+.menu-bar button{
+    background-color: rgba(179, 57, 179, 0.705);
+    margin-left: 10px;
     color:white;
-    display: flex;
-    
+    border-width: 0px 0px 0px 0px;
+    padding: 3px 3px 3px 3px;
 }
-#Explorer .iconStrip .icon {
-    width:30px;
-    height: 30px;
+.icon-and-name img{
+    height: 35%;
+    width: 35%;
+    margin-left: 50px;
 }
-#Explorer .iconStrip:hover{
-    background-color: blue;
+.icon-and-name li{
+    margin-left: -30px;
+    padding-right: 50px;
 }
-#Explorer .iconStrip .icon img {
-    max-width:70%;
-    max-height: 70%;
-
+.icon-and-name p{
+    margin-left: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-#Explorer .leftPane{
-    border-right: thin solid  #e4e5e8;
-    background-color:#f7f7f9;
-    flex:0 0 100px;
+.icon-and-name:hover{
+    background-color: rgba(127, 244, 255, 0.197);
 }
-#Explorer .rightPane{
-    flex-grow:1;
-    vertical-align: top;
-    display:flex;
-    flex-wrap: wrap;
-    overflow-y:auto;
-    
+.file-list{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 100px;
+    margin-right: 20px;
+    margin-top: -380px;
+    list-style: none;
 }
-#Explorer .iconHolder
-{
-    display:flex;
-    flex:0 0 100px;
-    padding:20px;
-    flex-direction: column;
+.create-button{
+    background-color: blueviolet;
+    color: wheat;
+    padding: 4px 4px 4px 4px;
+    border-color: gray;
 }
-#Explorer .iconHolder:hover
-{
-    background-color:blue;
-    opacity:0.8;
+.delete-button{
+    background-color: blueviolet;
+    color: wheat;
+    border-color: gray;
+    padding: 4px 4px 4px 4px;
 }
-#Explorer .iconHolder img{
-    width:50px;
-    height:50px;
+.tree{
+    background-color: rgba(128, 128, 128, 0.541);
+    border-style: solid;
+    margin-left: -20px;
+    margin-right: 80%;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-color: black;
+    padding-bottom: 49%;
+    height: 95%;
 }
-.button_cont_explorer{
-    height:30px;
-    position: relative;
-    display:flex;
-    user-select: none;
+.files{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.65);
+    list-style: none;
+    padding-left: 10px;
 }
-.button_cont_explorer_button{
-    border-radius:2px;
-    height:30px;
-    width:30px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    margin:auto;
-    text-align: center;
-    font-size:26px;
-}
-.back_button:hover{
-    background-color: blue;
-}
-.back_button:hover>.back_mark{
-    color:white;
-}
-.back_mark{
-    color:blue;
-    transition-duration: 0.4s;
+.files:hover{
+    background-color: rgba(0, 0, 0, 0.479);
+    color: rgb(208, 220, 231);
 }
