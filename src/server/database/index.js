@@ -3,7 +3,7 @@ mongoose.set("debug",true)
 mongoose.Promise = Promise
 
 mongoose.connect("mongodb://localhost/JS-OS",{
-    keepAlive:true
+	keepAlive:true
 })
 
 module.exports.File = require("./file")
