@@ -44,6 +44,8 @@
     display:flex;
     flex:0 0 100px;
     padding:20px;
+    width: 100px;
+    height:100px;
     flex-direction: column;
 }
 #Explorer .iconHolder:hover

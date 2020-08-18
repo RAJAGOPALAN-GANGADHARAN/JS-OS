@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import './explorer.css';
 import {  resizeDriver, Stack } from '../../scripts';
 import { disk,fileLogo } from '../../filesystem/main';
+import { eventDispatcher } from '../../handlers';
 export default class Explorer extends Component
 {
     constructor(props)
@@ -47,7 +48,8 @@ export default class Explorer extends Component
         console.log(currDisk);
         var fileLogo={
             pdf:require("../../desktop/taskbaricon/icons/file_pdf.png"),
-            txt:require('../../desktop/taskbaricon/icons/file_txt.png')
+            txt: require('../../desktop/taskbaricon/icons/file_txt.png'),
+            img: require('../../desktop/taskbaricon/icons/gallery.png')
         }
         let paneHolder=[],rightPaneHolder=[];
         var xaxis=0,yaxis=0,content;
@@ -74,10 +76,12 @@ export default class Explorer extends Component
             else
             {
                 let currentName=currentObject.completeName;
-                let ext=currentObject.fileExtension.split('.')[1];
+                let ext = currentObject.fileExtension.split('.')[1];
+                let customIcon = currentObject.fileContents.icon;
+                console.log(customIcon);
                 rightPaneHolder.push(
-                <div className="iconHolder" >
-                <img src={fileLogo[ext]}></img>
+                <div className="iconHolder" onClick={()=>{eventDispatcher(currentObject.fileContents.app,currentObject.fileContents.appData)}}>
+                <img src={customIcon ? require(`../../desktop/taskbaricon/icons/${customIcon}`):fileLogo[ext]}></img>
                 {currentName}
                 </div>
                 )

@@ -7,8 +7,9 @@ import { Terminal } from "./defaultapps/terminal/terminal";
 import { disk } from "./filesystem/main";
 import Empty, { Test } from "./misc/misc";
 import { TimeApp } from "./desktop/taskbar/time/time";
-import Editor from "./defaultapps/texteditor/editor";
+import WordEditor from "./defaultapps/texteditor/editor";
 import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
+import PdfReader from "./defaultapps/pdf/pdf";
 
 class runningTasks
 {
@@ -45,7 +46,8 @@ export function defaultAppsInstaller()
     appInstaller('explorer','./icons/folder.png',<Explorer/>);
     appInstaller('terminal','./icons/terminal.png',<Terminal directory={disk}/>);
     appInstaller('time','./icons/clock.png',<TimeApp/>)
-    appInstaller('editor','./icons/notepad.png',<Editor/>)
+    appInstaller('editor', './icons/notepad.png', <WordEditor />)
+    appInstaller('pdf','./icons/file_pdf.png',<PdfReader/>)
     console.log(appRegistry);
 }
 function parentGen(id)
@@ -82,8 +84,11 @@ export function taskParentGen(id)
     taskbar.appendChild(element);
     return element;
 }
-export function eventDispatcher(requestedAppId)
+export function eventDispatcher(requestedAppId,data=null)
 {
+    if (requestedAppId in appRegistry === false)
+        return false;
+    
     let id=idGen(10);
     var isRunning=isAlreadyRunning(appRegistry[requestedAppId].processName)
     eventHandler[id]=new runningTasks(id,appRegistry[requestedAppId]);
@@ -93,7 +98,7 @@ export function eventDispatcher(requestedAppId)
         var tPG=taskParentGen(id);
         ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
     }
-    ReactDOM.render(<Window id={id} source={eventHandler[id].Source}/>,parentGen(id));
+    ReactDOM.render(<Window id={id} source={eventHandler[id].Source} appData={data}/>,parentGen(id));
 }
 function parentDestroy(id)
 {

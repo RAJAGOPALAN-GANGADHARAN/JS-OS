@@ -20,7 +20,7 @@ export class Test extends Component
         super(props);
         this.state={var:null}
     }
-    componentWillMount()
+    componentDidMount=()=>
     {
         /*var tempVar=`
         <style>
@@ -33,16 +33,19 @@ export class Test extends Component
         <li class="bike">Bike1</li>`;
         this.setState({var:tempVar})
         */
-       request({
-           uri:"https://www.google.com/"
-       },(error,response,body)=>{
-           console.log(error,response)
-           this.setState({var:body})
-        });
+        // request({
+        //     uri: "https://google.com"
+        // }, (error, response, body) => {
+        //         console.log("Here");
+        //     console.log(error, response)
+        //     this.setState({ var: body })
+        // });
+       
     }
     render()
     {
-        return(
+        return (
+            
             <div style={{overflow:'hidden',position:relative}} dangerouslySetInnerHTML={{__html:this.state.var}}>   
             </div>
         )
