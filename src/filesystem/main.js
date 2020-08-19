@@ -20,13 +20,23 @@ export var disk=new folderStructure('root');
 // disk.addFile(file2);
 // folder1.addFile(file1)
 
+var host_url ="https://rajagopalan-gangadharan.github.io/Host-Server/"
 var desktop = new folderStructure('desktop');
 
 var desktopContents = [{
-    name: "Test", ext: ".pdf", content: {
-        icon:"file_pdf.png",appData:"http://localhost:8080",app:"pdf"
+    name: "Resume", ext: ".pdf", content: {
+        icon: "file_pdf.png",
+        appData: `${host_url}Resume_Rajagopalan.pdf`,
+        app: "PDFReader"
     }
-}, { name: "Teest", ext: ".img", content: {icon:null} }]
+}, {
+    name: "Dp", ext: ".img", content: {
+        appData: [
+            {original:`${host_url}dp.jpg`,thumbnail:`${host_url}dp.jpg`}
+        ],
+        app:"ImageViewer"
+        }
+    }]
 for (let item of desktopContents) {
     var tfile = new fileStructure(item.name,item.ext);
     tfile.addContent(item.content);

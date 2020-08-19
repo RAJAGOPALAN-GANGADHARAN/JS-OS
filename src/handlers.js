@@ -10,6 +10,7 @@ import { TimeApp } from "./desktop/taskbar/time/time";
 import WordEditor from "./defaultapps/texteditor/editor";
 import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
 import PdfReader from "./defaultapps/pdf/pdf";
+import ImageViewer from "./defaultapps/imageviewer/imageviewer";
 
 class runningTasks
 {
@@ -42,12 +43,13 @@ export function appInstaller(name,icon,Source)
 }
 export function defaultAppsInstaller()
 {
-    appInstaller('test','./icons/browser.png',<Test/>);
-    appInstaller('explorer','./icons/folder.png',<Explorer/>);
-    appInstaller('terminal','./icons/terminal.png',<Terminal directory={disk}/>);
-    appInstaller('time','./icons/clock.png',<TimeApp/>)
-    appInstaller('editor', './icons/notepad.png', <WordEditor />)
-    appInstaller('pdf','./icons/file_pdf.png',<PdfReader/>)
+    appInstaller('Test','./icons/browser.png',<Test/>);
+    appInstaller('Explorer','./icons/folder.png',<Explorer/>);
+    appInstaller('Terminal','./icons/terminal.png',<Terminal directory={disk}/>);
+    appInstaller('Time','./icons/clock.png',<TimeApp/>)
+    appInstaller('Editor', './icons/notepad.png', <WordEditor />)
+    appInstaller('PDFReader', './icons/file_pdf.png', <PdfReader />)
+    appInstaller('ImageViewer','./icons/gallery.png',<ImageViewer/>)
     console.log(appRegistry);
 }
 function parentGen(id)
