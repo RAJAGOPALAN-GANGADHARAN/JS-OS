@@ -56,13 +56,7 @@ export default class Explorer extends Component
         for(var fcnt in currDisk.folderContents)
         {
             let currentObject=currDisk.folderContents[fcnt];
-            /*paneHolder.push(
-                <div className="iconStrip">
-                <div className="icon"><img src={require('../../desktop/taskbaricon/icons/folder.png')}></img></div> 
-                {currentName}
-                </div>
-            )*/
-            if(currentObject.constructor.name=="folderStructure")
+            if(currentObject.isFolder==true)
             {
                 let currentName=currentObject.folderName;
                 //console.log(currentName)

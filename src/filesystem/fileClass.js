@@ -7,7 +7,8 @@ export class folderStructure
     constructor(name)
     {
         this.folderName=name;
-        this.folderContents={}
+        this.folderContents = {}
+        this.isFolder = true;
     }
     addObject(Obj)
     {
@@ -26,7 +27,8 @@ export class fileStructure
         this.fileName=name;
         this.fileExtension=ext;
         this.fileContents=''
-        this.completeName=name+ext;
+        this.completeName = name + ext;
+        this.isFolder = false;
     }
     addContent(body)
     {

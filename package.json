@@ -20,6 +20,7 @@
     "react": "^16.4.1",
     "react-ace": "^6.1.4",
     "react-bootstrap": "^1.3.0",
+    "react-clock": "^2.4.0",
     "react-dom": "^16.4.1",
     "react-fontawesome": "^1.6.1",
     "react-froala-wysiwyg": "^2.8.4",
@@ -28,7 +29,7 @@
     "react-iframe": "^1.2.0",
     "react-pdf": "^4.2.0",
     "react-read-pdf": "^2.0.9",
-    "react-scripts": "1.1.4",
+    "react-scripts": "2.0.0-next.3e165448",
     "react-trumbowyg": "^1.1.0",
     "request": "^2.88.0"
   },
@@ -42,5 +43,17 @@
   },
   "devDependencies": {
     "gh-pages": "^2.0.1"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
   }
 }

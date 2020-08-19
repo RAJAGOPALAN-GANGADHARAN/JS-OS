@@ -6,8 +6,9 @@ import Taskbar from './taskbar/taskbar';
 import Panel from './notification/notification';
 import Window from '../window/window';
 import {modify} from '../globalvariables';
-import {eventHandler, defaultAppsInstaller} from '../handlers';
+import {eventHandler, defaultAppsInstaller,eventDispatcher} from '../handlers';
 import ContextMenu from './contextmenu';
+import { disk } from '../filesystem/main';
 export default class Desktop extends Component
 {
     constructor(props)
@@ -24,15 +25,59 @@ export default class Desktop extends Component
         //this.adder=this.adder.bind(this);
         //this.closer=this.closer.bind(this);
         this.state={
-            bgimage:null,isFull:false,visible:false
+            bgimage:null,isFull:false,visible:false,desktopIcons:null
         };
     }
     goFullScreen()
     {
         this.setState({ isFull: true });
     }
+    folderPopulator=(currDisk)=> {
+        console.log(currDisk);
+        var fileLogo = {
+            pdf: require("./taskbaricon/icons/file_pdf.png"),
+            txt: require('./taskbaricon/icons/file_txt.png'),
+            img: require('./taskbaricon/icons/gallery.png')
+        }
+        let paneHolder = [], rightPaneHolder = [];
+        var xaxis = 10, yaxis = 50;
+        for (var fcnt in currDisk.folderContents) {
+            let currentObject = currDisk.folderContents[fcnt];
+            console.log(xaxis,yaxis)
+            if (currentObject.isFolder == true) {
+                let currentName = currentObject.folderName;
+                rightPaneHolder.push(
+                    <div className="iconHolderDesktop" style={{ top: `${yaxis}px`,left:`${xaxis}px` }} onClick={() => { this.folderSwitcher(currentName) }}>
+                        <img src={require('./taskbaricon/icons/folder.png')}></img>
+                        {currentName}
+                    </div>
+                )
+            }
+            else {
+                let currentName = currentObject.completeName;
+                let ext = currentObject.fileExtension.split('.')[1];
+                let customIcon = currentObject.fileContents.icon;
+                console.log(customIcon);
+                rightPaneHolder.push(
+                    <div className="iconHolderDesktop" style={{ top: `${yaxis}px`, left: `${xaxis}px` }} onClick={() => { eventDispatcher(currentObject.fileContents.app, currentObject.fileContents.appData) }}>
+                        <img src={customIcon ? require(`./taskbaricon/icons/${customIcon}`) : fileLogo[ext]}></img>
+                        {currentName}
+                    </div>
+                )
+            }
+            xaxis += 100
+            if (xaxis == 300)
+            {
+                yaxis += 100
+                xaxis = 10
+            }
+        }
+        console.log('Desktop Changed');
+        this.setState({ desktopIcons: rightPaneHolder });
+    }
     componentDidMount()
     {
+        this.folderPopulator(disk.folderContents['desktop'])
         this.setState({bgimage:backgroundImage},this.backgroundSetter);
         defaultAppsInstaller();
     }
@@ -55,6 +100,7 @@ export default class Desktop extends Component
                 </div>
                 <div id="desktop">
                 <Panel parent_class={this}/>
+                    {this.state.desktopIcons}
                 <Taskbar/>
                 </div>
             </Fullscreen>
