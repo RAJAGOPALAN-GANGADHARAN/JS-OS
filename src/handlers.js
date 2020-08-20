@@ -46,7 +46,7 @@ export function appInstaller(name,icon,Source)
 export function defaultAppsInstaller()
 {
     appInstaller('Test','./icons/browser.png',<Test/>);
-    appInstaller('Explorer','./icons/folder.png',<Explorer/>);
+    appInstaller('Explorer', './icons/folder.png', <Explorer/>);
     appInstaller('Terminal','./icons/terminal.png',<Terminal directory={disk}/>);
     appInstaller('Time','./icons/clock.png',<TimeApp/>)
     appInstaller('Editor', './icons/notepad.png', <WordEditor />)
@@ -89,7 +89,7 @@ export function taskParentGen(id)
     taskbar.appendChild(element);
     return element;
 }
-export function eventDispatcher(requestedAppId,data=null)
+export function eventDispatcher(requestedAppId,data=null,fs=null)
 {
     if (requestedAppId in appRegistry === false)
         return false;
@@ -103,7 +103,7 @@ export function eventDispatcher(requestedAppId,data=null)
         var tPG=taskParentGen(id);
         ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
     }
-    ReactDOM.render(<Window id={id} source={eventHandler[id].Source} appData={data}/>,parentGen(id));
+    ReactDOM.render(<Window id={id} source={eventHandler[id].Source} fs={fs} appData={data}/>,parentGen(id));
 }
 function parentDestroy(id)
 {

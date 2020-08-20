@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import './applauncher.css';
+import { disk } from "../filesystem/main";
 import { appRegistry, eventDispatcher } from '../handlers';
 
 export default class AppLauncher extends Component
@@ -17,7 +18,7 @@ export default class AppLauncher extends Component
     {
         console.log(processName)
         this.shredder();
-        eventDispatcher(processName);
+        eventDispatcher(processName,null,disk);
     }
     componentDidMount()
     {

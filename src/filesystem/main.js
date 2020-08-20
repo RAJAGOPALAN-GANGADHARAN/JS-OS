@@ -36,12 +36,21 @@ var desktopContents = [{
         ],
         app:"ImageViewer"
         }
-    }]
+    }
+]
+
 for (let item of desktopContents) {
     var tfile = new fileStructure(item.name,item.ext);
     tfile.addContent(item.content);
     desktop.addFile(tfile);
 }
+let folder1 = new folderStructure("folder1");
+for (let item of desktopContents) {
+    var tfile = new fileStructure(item.name, item.ext);
+    tfile.addContent(item.content);
+    folder1.addFile(tfile);
+}
+desktop.addObject(folder1);
 disk.addObject(desktop);
 
 /*

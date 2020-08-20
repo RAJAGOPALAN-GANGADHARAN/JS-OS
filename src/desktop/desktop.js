@@ -47,7 +47,7 @@ export default class Desktop extends Component
             if (currentObject.isFolder == true) {
                 let currentName = currentObject.folderName;
                 rightPaneHolder.push(
-                    <div className="iconHolderDesktop" style={{ top: `${yaxis}px`,left:`${xaxis}px` }} onClick={() => { this.folderSwitcher(currentName) }}>
+                    <div className="iconHolderDesktop" style={{ top: `${yaxis}px`,left:`${xaxis}px` }} onClick={() => { eventDispatcher('Explorer',null,currentObject) }}>
                         <img src={require('./taskbaricon/icons/folder.png')}></img>
                         {currentName}
                     </div>

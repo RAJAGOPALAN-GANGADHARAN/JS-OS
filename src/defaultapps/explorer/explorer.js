@@ -9,7 +9,7 @@ export default class Explorer extends Component
     {
         super(props);
         this.state={leftPane:[],rightPane:[]};
-        this.currentDirectory=disk;
+        this.currentDirectory=this.props.fs;
         this.flowControl=[];
         this.flowPtr=0;
         this.settingsModifier=this.settingsModifier.bind(this);
