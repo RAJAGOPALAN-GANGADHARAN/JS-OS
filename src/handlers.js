@@ -11,6 +11,8 @@ import WordEditor from "./defaultapps/texteditor/editor";
 import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
 import PdfReader from "./defaultapps/pdf/pdf";
 import ImageViewer from "./defaultapps/imageviewer/imageviewer";
+import RCalendar from "./defaultapps/calendar/calendar";
+
 
 class runningTasks
 {
@@ -49,7 +51,8 @@ export function defaultAppsInstaller()
     appInstaller('Time','./icons/clock.png',<TimeApp/>)
     appInstaller('Editor', './icons/notepad.png', <WordEditor />)
     appInstaller('PDFReader', './icons/file_pdf.png', <PdfReader />)
-    appInstaller('ImageViewer','./icons/gallery.png',<ImageViewer/>)
+    appInstaller('ImageViewer', './icons/gallery.png', <ImageViewer />);
+    appInstaller('Calendar','./icons/calendar.png',<RCalendar/>)
     console.log(appRegistry);
 }
 function parentGen(id)
