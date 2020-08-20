@@ -1,12 +1,12 @@
 {
   "runtime~main.js": "/JS-OS/static/js/runtime~main.0e4cfc30.js",
   "runtime~main.js.map": "/JS-OS/static/js/runtime~main.0e4cfc30.js.map",
-  "vendors.css": "/JS-OS/static/css/vendors.b7f75cc7.chunk.css",
-  "vendors.js": "/JS-OS/static/js/vendors.cbd288e1.chunk.js",
-  "vendors.js.map": "/JS-OS/static/js/vendors.cbd288e1.chunk.js.map",
-  "main.css": "/JS-OS/static/css/main.e9e32ead.chunk.css",
-  "main.js": "/JS-OS/static/js/main.6beb6491.chunk.js",
-  "main.js.map": "/JS-OS/static/js/main.6beb6491.chunk.js.map",
+  "vendors.css": "/JS-OS/static/css/vendors.f13de876.chunk.css",
+  "vendors.js": "/JS-OS/static/js/vendors.4cc73850.chunk.js",
+  "vendors.js.map": "/JS-OS/static/js/vendors.4cc73850.chunk.js.map",
+  "main.css": "/JS-OS/static/css/main.646a4d5b.chunk.css",
+  "main.js": "/JS-OS/static/js/main.bb57bac9.chunk.js",
+  "main.js.map": "/JS-OS/static/js/main.bb57bac9.chunk.js.map",
   "static/media/file_txt.png": "/JS-OS/static/media/file_txt.2399171c.png",
   "static/media/file_pdf.png": "/JS-OS/static/media/file_pdf.98a837f1.png",
   "static/media/terminal.png": "/JS-OS/static/media/terminal.89609d9d.png",
@@ -15,6 +15,7 @@
   "static/media/google.png": "/JS-OS/static/media/google.8542bf87.png",
   "static/media/clock.png": "/JS-OS/static/media/clock.12177cd5.png",
   "static/media/browser.png": "/JS-OS/static/media/browser.b431690e.png",
+  "static/media/Excel.svg": "/JS-OS/static/media/Excel.6d1e912e.svg",
   "static/media/bgtest.jpg": "/JS-OS/static/media/bgtest.f5fc9ef1.jpg",
   "index.html": "/JS-OS/index.html"
 }
