@@ -1,34 +1,40 @@
-import React, { useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import MonacoEditor from 'react-monaco-editor';
+import ReactResizeDetector from 'react-resize-detector';
 
-import Editor from "@monaco-editor/react";
+export default class Editor extends React.Component {
+    state = {
+        code: ['function x() {', "  console.log('Hello world!');", '}'].join('\n'),
+    };
 
-export default function CodeStudio() {
-    const [isEditorReady, setIsEditorReady] = useState(false);
-    const valueGetter = useRef();
+    onChange = (newValue, e) => {
+        console.log('onChange', newValue, e);
+        this.setState({ code: newValue });
+    };
 
-    function handleEditorDidMount(_valueGetter) {
-        setIsEditorReady(true);
-        valueGetter.current = _valueGetter;
+    editorDidMount = (editor, monaco) => {
+        console.log('editorDidMount', editor, monaco);
+        this.editor = editor;
+        editor.focus();
+    };
+
+    render() {
+        const { code } = this.state;
+        const options = {
+            selectOnLineNumbers: true,
+            automaticLayout:true
+        };
+        return (
+            <div style={{width:"100%",height:"100%"}}>
+                <MonacoEditor
+                    language="javascript"
+                    theme="vs-dark"
+                    value={code}
+                    options={options}
+                    onChange={this.onChange}
+                    editorDidMount={this.editorDidMount}
+                />
+            </div>
+        );
     }
-
-    function handleShowValue() {
-        alert(valueGetter.current());
-    }
-
-    return (
-        <div style={{width:"100%",height:"100%"}}>
-            <button onClick={handleShowValue} disabled={!isEditorReady}>
-                Show value
-      </button>
-
-            <Editor
-                height="100%"
-                style={{overflowY:"auto"}}
-                language="javascript"
-                value={"// write your code here"}
-                editorDidMount={handleEditorDidMount}
-            />
-        </div>
-    );
 }
