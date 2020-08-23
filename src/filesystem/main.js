@@ -4,7 +4,19 @@ import {folderStructure, fileStructure} from './fileClass';
 
 //handle files
 //main root
-export var disk=new folderStructure('root');
+export var disk = new folderStructure('root');
+
+export function getFolder(path)
+{
+    var res = path.split("/");
+    var it = disk;
+    //console.log(disk.folderContents['desktop'].folderContents['folder1'])
+    for (let x = 1; x < res.length; ++x)
+        it = it.folderContents[res[x]];
+    console.log(res);
+    
+    return it;
+}
 //default folders
 // var folder1=new folderStructure('home0');
 // for(var x=0;x<9;++x)
@@ -53,6 +65,18 @@ for (let item of desktopContents) {
 desktop.addObject(folder1);
 disk.addObject(desktop);
 
+let t = getFolder("root/desktop/folder1")
+t.addObject(new folderStructure("folder2"));
+let f = new fileStructure("markdownTest", ".md");
+f.addContent({
+    icon: "markdown.png",
+    appData: "## Hello",
+    app:"Markdown"
+})
+t.addFile(f);
+
+// localStorage.setItem("jsfs", JSON.stringify(disk));
+// var outdisk = JSON.parse(localStorage.getItem("jsfs"));
 /*
 
 {

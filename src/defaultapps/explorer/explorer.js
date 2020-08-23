@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import './explorer.css';
 import {  resizeDriver, Stack } from '../../scripts';
-import { disk,fileLogo } from '../../filesystem/main';
+import { disk, fileLogo } from '../../filesystem/main';
+import { folderStructure, fileStructure } from '../../filesystem/fileClass'; 
 import { eventDispatcher } from '../../handlers';
+import ExplorerMenu from './menubar';
 export default class Explorer extends Component
 {
     constructor(props)
@@ -87,16 +89,16 @@ export default class Explorer extends Component
     componentDidMount()
     {
         console.log(this.props.id);
-        //****experimental
-        //let pane=document.getElementById('Explorer').getElementsByClassName('leftPane')[0];
-        //* ****
-        
         this.settingsModifier();
+        this.folderPopulator(this.currentDirectory);
+    }
+    newFolder = (name) => {
+        this.currentDirectory.addObject(new folderStructure(name));
         this.folderPopulator(this.currentDirectory);
     }
     render()
     {
-        return(
+        return (
             <div id="Explorer">
                 <div className="leftPane">
                 <div className="button_cont_explorer">
@@ -107,13 +109,14 @@ export default class Explorer extends Component
                 <span className="back_mark">&rArr;</span>
                 </div>
                 </div>
-                {this.state.leftPane}
-                
+                    <ExplorerMenu newFolder={this.newFolder}/>               
                 </div>
+                
                 <div className="rightPane">
                 {this.state.rightPane}
                 </div>
-            </div>
+                </div>
+                
         )
     }
 }

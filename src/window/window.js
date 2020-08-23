@@ -79,6 +79,7 @@ export default class Window extends Component
         return(
             <div className="window" id={this.state.id} onMouseDown={this.setFrameLevel} onMouseUp={this.setFrameLevel}>
                 <div className="header">
+                    <span style={{ color: "white", margin: "2px" }}>{this.props.appName}</span>
                     <div className="button_cont">
                         <div className="button_cont_button minimize_button" onClick={this.minimize} >
                         <span className="minimize_mark">&#45;</span>

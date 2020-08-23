@@ -12,6 +12,10 @@ import TaskbarIcon from './desktop/taskbaricon/taskbaricon';
 import PdfReader from "./defaultapps/pdf/pdf";
 import ImageViewer from "./defaultapps/imageviewer/imageviewer";
 import RCalendar from "./defaultapps/calendar/calendar";
+import MinesweeperGame from "./defaultapps/games/minesweeper/minesweeper";
+import MarkdownReader from "./defaultapps/markdown/markdown_reader";
+import { Particle } from "./defaultapps/games/particle/particle";
+import CodeStudio from "./defaultapps/codestudio/codestudio";
 
 
 class runningTasks
@@ -52,7 +56,11 @@ export function defaultAppsInstaller()
     appInstaller('Editor', './icons/notepad.png', <WordEditor />)
     appInstaller('PDFReader', './icons/file_pdf.png', <PdfReader />)
     appInstaller('ImageViewer', './icons/gallery.png', <ImageViewer />);
-    appInstaller('Calendar','./icons/calendar.png',<RCalendar/>)
+    appInstaller('Calendar', './icons/calendar.png', <RCalendar />)
+    appInstaller('Minesweeper', './icons/minesweeper.png', <MinesweeperGame />);
+    appInstaller('Markdown', './icons/markdown.png', <MarkdownReader />);
+    appInstaller('Particle3D', './icons/Particle.png', <Particle />)
+    appInstaller('CodeStudio','./icons/vscode.png',<CodeStudio/>)
     console.log(appRegistry);
 }
 function parentGen(id)
@@ -103,7 +111,7 @@ export function eventDispatcher(requestedAppId,data=null,fs=null)
         var tPG=taskParentGen(id);
         ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
     }
-    ReactDOM.render(<Window id={id} source={eventHandler[id].Source} fs={fs} appData={data}/>,parentGen(id));
+    ReactDOM.render(<Window appName={requestedAppId} id={id} source={eventHandler[id].Source} fs={fs} appData={data}/>,parentGen(id));
 }
 function parentDestroy(id)
 {
