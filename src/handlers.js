@@ -17,6 +17,7 @@ import MarkdownReader from "./defaultapps/markdown/markdown_reader";
 import { Particle } from "./defaultapps/games/particle/particle";
 import CodeStudio from "./defaultapps/codestudio/codestudio";
 import StickyNotesApp from "./defaultapps/stickynotes/stickynotes";
+import ProcessManager from "./defaultapps/processmanager/processmanager";
 
 
 class runningTasks
@@ -62,7 +63,8 @@ export function defaultAppsInstaller()
     appInstaller('Markdown', './icons/markdown.png', <MarkdownReader />);
     appInstaller('Particle3D', './icons/Particle.png', <Particle />)
     appInstaller('CodeStudio', './icons/vscode.png', <CodeStudio />)
-    appInstaller('StickyNotes', './icons/stickynotes.png', <StickyNotesApp/>);
+    appInstaller('StickyNotes', './icons/stickynotes.png', <StickyNotesApp />);
+    appInstaller('ProcessManager', './icons/task.png', <ProcessManager data={eventHandler}/>)
     console.log(appRegistry);
 }
 function parentGen(id)

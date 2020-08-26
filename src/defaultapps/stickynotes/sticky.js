@@ -17,7 +17,7 @@ class StickyNotes extends Component
     {
         return (
             <div id={this.state.id} style={{
-                position: "absolute", width: "200px", height: "100px",
+                position: "absolute", width: "200px", height: "200px",
                 backgroundColor: this.props.color, zIndex: 1, right: "30px",top:"100px",
                 color:"white",overflow:"auto"
             }}>
