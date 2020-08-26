@@ -91,6 +91,7 @@ widgetFile.addContent({
     handler:null
 })
 getFolder('root/Data').addFile(widgetFile);
+var testfile = new fileStructure("test", '.dat');
 testfile.addContent({
     appData: {
         title: "Note-Welcome",
