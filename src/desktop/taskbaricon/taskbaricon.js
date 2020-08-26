@@ -54,7 +54,7 @@ export default class TaskIcon extends Component
             // var element=element2.getElementById(this.props.id);
             // // element.style.height="100%";
             // // element.style.width="100%";
-            html2canvas(document.getElementById(this.props.id)).then((canvas) => {
+            html2canvas(document.getElementById(this.props.id), { useCORS: true}).then((canvas) => {
                 document.getElementById(this.props.id + "mini").src = canvas.toDataURL();
                 document.getElementById(this.props.id + "mini").style.position = "absolute";
                 document.getElementById(this.props.id + "mini").style.height = "150px";
