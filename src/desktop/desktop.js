@@ -10,6 +10,9 @@ import {eventHandler, defaultAppsInstaller,eventDispatcher} from '../handlers';
 import ContextMenu from './contextmenu';
 import { disk,getFolder } from '../filesystem/main';
 import { draggerDriver } from '../scripts';
+function scheduleDraw(obj){
+    obj.getWidgets();
+}
 export default class Desktop extends Component
 {
     constructor(props)
@@ -28,11 +31,13 @@ export default class Desktop extends Component
         this.state={
             bgimage:null,isFull:false,visible:false,desktopIcons:null
         };
+        
     }
     goFullScreen()
     {
         this.setState({ isFull: true });
     }
+    
     getWidgets()
     {
         let wtemp=[]
@@ -50,7 +55,8 @@ export default class Desktop extends Component
         var fileLogo = {
             pdf: require("./taskbaricon/icons/file_pdf.png"),
             txt: require('./taskbaricon/icons/file_txt.png'),
-            img: require('./taskbaricon/icons/gallery.png')
+            img: require('./taskbaricon/icons/gallery.png'),
+            dat: require('./taskbaricon/icons/unknown.png')
         }
         let paneHolder = [], rightPaneHolder = [];
         var xaxis = 10, yaxis = 50;
@@ -89,13 +95,23 @@ export default class Desktop extends Component
         this.setState({ desktopIcons: rightPaneHolder });
         this.getWidgets();
     }
-    componentDidMount()
+    async componentDidMount()
     {
         var empty = document.querySelector('#emptyDragclass');
         draggerDriver(empty)
         this.folderPopulator(disk.folderContents['desktop'])
         this.setState({bgimage:backgroundImage},this.backgroundSetter);
         defaultAppsInstaller();
+        // var wid = getFolder('root/Data').folderContents['widgets.dat'];
+        // wid.fileContents.handler = scheduleDraw.bind(this);
+        setInterval(() => {
+            var signal = disk.folderContents['signal.dat'].fileContents.handleDraw;
+            if (signal) {
+                this.getWidgets();
+                disk.folderContents['signal.dat'].fileContents.handleDraw=false;
+            }
+        }, 1000);
+
     }
     backgroundSetter()
     {

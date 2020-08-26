@@ -62,7 +62,7 @@ export function defaultAppsInstaller()
     appInstaller('Markdown', './icons/markdown.png', <MarkdownReader />);
     appInstaller('Particle3D', './icons/Particle.png', <Particle />)
     appInstaller('CodeStudio', './icons/vscode.png', <CodeStudio />)
-    appInstaller('StickyNotes', './icons/browser.png', <StickyNotesApp/>);
+    appInstaller('StickyNotes', './icons/stickynotes.png', <StickyNotesApp/>);
     console.log(appRegistry);
 }
 function parentGen(id)

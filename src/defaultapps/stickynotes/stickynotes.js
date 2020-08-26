@@ -9,24 +9,25 @@ import { FaPlus, FaEye, FaPaintBrush } from 'react-icons/fa';
 var fs = disk.folderContents['Data'].folderContents['stickynotes'];
 var fsf;
 
+
 export default class StickyNotesApp extends Component
 {
     constructor(props) {
         super(props);
         //this.fs = getFolder('root/Data/stickynotes').folderContents;
         this.state = { notes: null }
-        
         fsf = fs.folderContents;
-
     }
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
         fsf[e.target.name].fileContents.appData.desc = e.target.value;
+        disk.folderContents['signal.dat'].fileContents.handleDraw=true;
     }
     hideshow(e,data) {
         console.log(data);
         fsf[data].fileContents.appData.desktop = !fsf[data].fileContents.appData.desktop;
         //console.log(s);
+        disk.folderContents['signal.dat'].fileContents.handleDraw = true;
     }
     changeColor(e, data)
     {
@@ -34,10 +35,12 @@ export default class StickyNotesApp extends Component
         this.setState({ [data[0] + "color"]: data[1] });
         fsf[data[0]].fileContents.appData.color = data[1];
         this.draw();
+        disk.folderContents['signal.dat'].fileContents.handleDraw = true;
     }
     erase(e, data) {
         delete fsf[data];
         this.draw();
+        disk.folderContents['signal.dat'].fileContents.handleDraw = true;
     }
     draw = () => {
         let ren = []
@@ -84,7 +87,8 @@ export default class StickyNotesApp extends Component
             appData: {
                 title: "Note" + l,
                 desc: "",
-                desktop:false
+                desktop: false,
+                color:"#779ECB"
             }
         })
         fs.addFile(file);

@@ -51,7 +51,8 @@ export default class Explorer extends Component
         var fileLogo={
             pdf:require("../../desktop/taskbaricon/icons/file_pdf.png"),
             txt: require('../../desktop/taskbaricon/icons/file_txt.png'),
-            img: require('../../desktop/taskbaricon/icons/gallery.png')
+            img: require('../../desktop/taskbaricon/icons/gallery.png'),
+            dat: require("../../desktop/taskbaricon/icons/unknown.png")
         }
         let paneHolder=[],rightPaneHolder=[];
         var xaxis=0,yaxis=0,content;

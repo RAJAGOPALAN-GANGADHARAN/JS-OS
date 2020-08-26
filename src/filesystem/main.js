@@ -7,7 +7,11 @@ import { StickyNotes, populateSticky } from '../defaultapps/stickynotes/sticky';
 //handle files
 //main root
 export var disk = new folderStructure('root');
-
+var signal = new fileStructure('signal', '.dat');
+signal.addContent({
+    handleDraw:false
+})
+disk.addFile(signal);
 export function getFolder(path)
 {
     var res = path.split("/");
@@ -83,7 +87,8 @@ var widgetFile = new fileStructure('widgets', '.dat');
 widgetFile.addContent({
     appData: [
         [populateSticky]
-    ]
+    ],
+    handler:null
 })
 getFolder('root/Data').addFile(widgetFile);
 var testfile = new fileStructure("test", '.dat');
@@ -92,7 +97,7 @@ testfile.addContent({
         title:"Note1",
         desc: "Data",
         desktop: false,
-        color:"red"
+        color:"#779ECB"
     }
 })
 getFolder('root/Data/stickynotes').addFile(testfile);
@@ -102,7 +107,7 @@ testfile2.addContent({
         title: "Note2",
         desc: "Data",
         desktop: true,
-        color:"blue"
+        color:"#779ECB"
     }
 })
 getFolder('root/Data/stickynotes').addFile(testfile2);
