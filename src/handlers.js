@@ -18,7 +18,7 @@ import { Particle } from "./defaultapps/games/particle/particle";
 import CodeStudio from "./defaultapps/codestudio/codestudio";
 import StickyNotesApp from "./defaultapps/stickynotes/stickynotes";
 import ProcessManager from "./defaultapps/processmanager/processmanager";
-
+import BlogHome from './defaultapps/blogfeed/components/BlogHome';
 
 class runningTasks
 {
@@ -64,7 +64,8 @@ export function defaultAppsInstaller()
     appInstaller('Particle3D', './icons/Particle.png', <Particle />)
     appInstaller('CodeStudio', './icons/vscode.png', <CodeStudio />)
     appInstaller('StickyNotes', './icons/stickynotes.png', <StickyNotesApp />);
-    appInstaller('ProcessManager', './icons/task.png', <ProcessManager data={eventHandler}/>)
+    appInstaller('ProcessManager', './icons/task.png', <ProcessManager data={eventHandler} />)
+    appInstaller('Blogger', './icons/browser.png', <BlogHome />);
     console.log(appRegistry);
 }
 function parentGen(id)

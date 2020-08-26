@@ -5,8 +5,8 @@
     box-sizing: border-box;
     -ms-touch-action: none;
     touch-action: none;
-    width:300px;
-    height:300px;
+    width:500px;
+    height:500px;
     border-collapse: separate;
 }
 .header{
