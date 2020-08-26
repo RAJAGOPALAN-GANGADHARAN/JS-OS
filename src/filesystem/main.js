@@ -1,4 +1,6 @@
-import {folderStructure, fileStructure} from './fileClass';
+import { folderStructure, fileStructure } from './fileClass';
+import React from 'react';
+import { StickyNotes, populateSticky } from '../defaultapps/stickynotes/sticky';
 
 //launcher installer
 
@@ -74,6 +76,38 @@ f.addContent({
     app:"Markdown"
 })
 t.addFile(f);
+
+disk.addObject(new folderStructure('Data'));
+getFolder('root/Data').addObject(new folderStructure('stickynotes'));
+var widgetFile = new fileStructure('widgets', '.dat');
+widgetFile.addContent({
+    appData: [
+        [populateSticky]
+    ]
+})
+getFolder('root/Data').addFile(widgetFile);
+var testfile = new fileStructure("test", '.dat');
+testfile.addContent({
+    appData: {
+        title:"Note1",
+        desc: "Data",
+        desktop: false,
+        color:"red"
+    }
+})
+getFolder('root/Data/stickynotes').addFile(testfile);
+var testfile2 = new fileStructure("test2", '.dat');
+testfile2.addContent({
+    appData: {
+        title: "Note2",
+        desc: "Data",
+        desktop: true,
+        color:"blue"
+    }
+})
+getFolder('root/Data/stickynotes').addFile(testfile2);
+
+
 
 // localStorage.setItem("jsfs", JSON.stringify(disk));
 // var outdisk = JSON.parse(localStorage.getItem("jsfs"));

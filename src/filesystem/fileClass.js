@@ -9,14 +9,18 @@ export class folderStructure
         this.folderName=name;
         this.folderContents = {}
         this.isFolder = true;
+        this.dateAdded = new Date();
+        this.dateUpdate = new Date();
     }
     addObject(Obj)
     {
+        this.dateUpdate = new Date();
         this.folderContents[Obj.folderName]=Obj;
         //console.log(this.folderContents[Obj.folderName]);
     }
     addFile(file)
     {
+        this.dateUpdate = new Date();
         this.folderContents[file.completeName]=file;
     }
 }
@@ -29,9 +33,12 @@ export class fileStructure
         this.fileContents=''
         this.completeName = name + ext;
         this.isFolder = false;
+        this.dateAdded = new Date();
+        this.dateUpdate = new Date();
     }
     addContent(body)
     {
-        this.fileContents=body;
+        this.fileContents = body;
+        this.dateUpdate = new Date();
     }
 }

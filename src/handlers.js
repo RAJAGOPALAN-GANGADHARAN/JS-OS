@@ -16,6 +16,7 @@ import MinesweeperGame from "./defaultapps/games/minesweeper/minesweeper";
 import MarkdownReader from "./defaultapps/markdown/markdown_reader";
 import { Particle } from "./defaultapps/games/particle/particle";
 import CodeStudio from "./defaultapps/codestudio/codestudio";
+import StickyNotesApp from "./defaultapps/stickynotes/stickynotes";
 
 
 class runningTasks
@@ -60,7 +61,8 @@ export function defaultAppsInstaller()
     appInstaller('Minesweeper', './icons/minesweeper.png', <MinesweeperGame />);
     appInstaller('Markdown', './icons/markdown.png', <MarkdownReader />);
     appInstaller('Particle3D', './icons/Particle.png', <Particle />)
-    appInstaller('CodeStudio','./icons/vscode.png',<CodeStudio/>)
+    appInstaller('CodeStudio', './icons/vscode.png', <CodeStudio />)
+    appInstaller('StickyNotes', './icons/browser.png', <StickyNotesApp/>);
     console.log(appRegistry);
 }
 function parentGen(id)

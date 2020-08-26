@@ -8,7 +8,8 @@ import Window from '../window/window';
 import {modify} from '../globalvariables';
 import {eventHandler, defaultAppsInstaller,eventDispatcher} from '../handlers';
 import ContextMenu from './contextmenu';
-import { disk } from '../filesystem/main';
+import { disk,getFolder } from '../filesystem/main';
+import { draggerDriver } from '../scripts';
 export default class Desktop extends Component
 {
     constructor(props)
@@ -31,6 +32,18 @@ export default class Desktop extends Component
     goFullScreen()
     {
         this.setState({ isFull: true });
+    }
+    getWidgets()
+    {
+        let wtemp=[]
+        let widgets = getFolder('root/Data').folderContents['widgets.dat'];
+        for (let widget of widgets.fileContents.appData)
+        {
+            let vv = widget[0]();
+            wtemp=wtemp.concat(vv);
+        }
+        //console.log(wtemp);
+        this.setState({widgets:wtemp})
     }
     folderPopulator=(currDisk)=> {
         console.log(currDisk);
@@ -74,9 +87,12 @@ export default class Desktop extends Component
         }
         console.log('Desktop Changed');
         this.setState({ desktopIcons: rightPaneHolder });
+        this.getWidgets();
     }
     componentDidMount()
     {
+        var empty = document.querySelector('#emptyDragclass');
+        draggerDriver(empty)
         this.folderPopulator(disk.folderContents['desktop'])
         this.setState({bgimage:backgroundImage},this.backgroundSetter);
         defaultAppsInstaller();
@@ -95,12 +111,14 @@ export default class Desktop extends Component
                 </div>*/
         return(
             <Fullscreen enabled={this.state.isFull} onChange={isFull => this.setState({isFull})}>
-                <ContextMenu/>
+                <ContextMenu />
+                <div id="emptyDragclass"></div>
                 <div id="launcher">
                 </div>
                 <div id="desktop">
                 <Panel parent_class={this}/>
                     {this.state.desktopIcons}
+                    {this.state.widgets}
                 <Taskbar/>
                 </div>
             </Fullscreen>
