@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/JS-OS/static/css/main.94df146e.chunk.css",
-    "main.js": "/JS-OS/static/js/main.b572050a.chunk.js",
-    "main.js.map": "/JS-OS/static/js/main.b572050a.chunk.js.map",
-    "runtime-main.js": "/JS-OS/static/js/runtime-main.34aa8c65.js",
-    "runtime-main.js.map": "/JS-OS/static/js/runtime-main.34aa8c65.js.map",
+    "main.js": "/JS-OS/static/js/main.c5c8a554.chunk.js",
+    "main.js.map": "/JS-OS/static/js/main.c5c8a554.chunk.js.map",
+    "runtime-main.js": "/JS-OS/static/js/runtime-main.75c257b6.js",
+    "runtime-main.js.map": "/JS-OS/static/js/runtime-main.75c257b6.js.map",
     "static/css/2.319fc839.chunk.css": "/JS-OS/static/css/2.319fc839.chunk.css",
-    "static/js/2.c5b98e04.chunk.js": "/JS-OS/static/js/2.c5b98e04.chunk.js",
-    "static/js/2.c5b98e04.chunk.js.map": "/JS-OS/static/js/2.c5b98e04.chunk.js.map",
-    "static/js/3.d38c9e12.chunk.js": "/JS-OS/static/js/3.d38c9e12.chunk.js",
-    "static/js/3.d38c9e12.chunk.js.map": "/JS-OS/static/js/3.d38c9e12.chunk.js.map",
+    "static/js/2.79e6a6ea.chunk.js": "/JS-OS/static/js/2.79e6a6ea.chunk.js",
+    "static/js/2.79e6a6ea.chunk.js.map": "/JS-OS/static/js/2.79e6a6ea.chunk.js.map",
+    "static/js/3.5b68e46c.chunk.js": "/JS-OS/static/js/3.5b68e46c.chunk.js",
+    "static/js/3.5b68e46c.chunk.js.map": "/JS-OS/static/js/3.5b68e46c.chunk.js.map",
     "editor.worker.js": "/JS-OS/editor.worker.js",
     "editor.worker.js.map": "/JS-OS/editor.worker.js.map",
     "index.html": "/JS-OS/index.html",
-    "precache-manifest.a931658c587212fceffc270dfe8afe65.js": "/JS-OS/precache-manifest.a931658c587212fceffc270dfe8afe65.js",
+    "precache-manifest.7b860a9205c340d81bb3919e7fbfddf8.js": "/JS-OS/precache-manifest.7b860a9205c340d81bb3919e7fbfddf8.js",
     "service-worker.js": "/JS-OS/service-worker.js",
     "static/css/2.319fc839.chunk.css.map": "/JS-OS/static/css/2.319fc839.chunk.css.map",
     "static/css/main.94df146e.chunk.css.map": "/JS-OS/static/css/main.94df146e.chunk.css.map",
@@ -29,14 +29,15 @@
     "static/media/launcher.png": "/JS-OS/static/media/launcher.56db4bde.png",
     "static/media/minesweeper.png": "/JS-OS/static/media/minesweeper.9b7457b8.png",
     "static/media/notepad.png": "/JS-OS/static/media/notepad.7a7e05ea.png",
+    "static/media/stickynotes.png": "/JS-OS/static/media/stickynotes.5b120130.png",
     "static/media/terminal.png": "/JS-OS/static/media/terminal.89609d9d.png",
     "static/media/vscode.png": "/JS-OS/static/media/vscode.7e73d334.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.34aa8c65.js",
+    "static/js/runtime-main.75c257b6.js",
     "static/css/2.319fc839.chunk.css",
-    "static/js/2.c5b98e04.chunk.js",
+    "static/js/2.79e6a6ea.chunk.js",
     "static/css/main.94df146e.chunk.css",
-    "static/js/main.b572050a.chunk.js"
+    "static/js/main.c5c8a554.chunk.js"
   ]
 }
