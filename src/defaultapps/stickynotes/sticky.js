@@ -17,9 +17,9 @@ class StickyNotes extends Component
     {
         return (
             <div id={this.state.id} style={{
-                position: "absolute", width: "200px", height: "200px",
-                backgroundColor: this.props.color, zIndex: 1, right: "30px",top:"100px",
-                color:"white",overflow:"auto"
+                position: "absolute", width: "300px", height: "300px",
+                backgroundColor: this.props.color, zIndex: 1, right: this.props.right, top: this.props.top,
+                color: "white", overflow: "auto"
             }}>
                 <div className="header"></div>
                 {this.props.data}
@@ -37,8 +37,10 @@ export function populateSticky()
         //console.log(fs.folderContents[note]);
         var vv = note;
         if(fsf[vv].fileContents.appData.desktop==true)
-        arr.push(<StickyNotes id={fsf[vv].fileContents.appData.title} data={fsf[vv].fileContents.appData.desc}
-            color={fsf[vv].fileContents.appData.color} />)
+            arr.push(<StickyNotes id={fsf[vv].fileContents.appData.title} data={fsf[vv].fileContents.appData.desc}
+                color={fsf[vv].fileContents.appData.color}
+                right={fsf[vv].fileContents.appData.right}
+                top={fsf[vv].fileContents.appData.top} />)
     }
 
     return arr;

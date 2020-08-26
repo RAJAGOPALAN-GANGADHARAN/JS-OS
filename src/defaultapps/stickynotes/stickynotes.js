@@ -101,6 +101,11 @@ export default class StickyNotesApp extends Component
                 <Jumbotron fluid>
                     <Container>
                         <h1>Sticky Notes</h1>
+                        <p>Instructions:<br />
+                         1) you can add a new note<br />
+                         2) click on the eye to toggle notes on desktop<br />
+                         3) Switch notes to your favorite colors and edit on the fly.<br />
+                        </p>
                     </Container>
                 </Jumbotron>
                 <Button style={{ margin: "20px" }} onClick={(e)=>this.addNote(e)}><FaPlus /> Add</Button>

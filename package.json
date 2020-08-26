@@ -2,7 +2,7 @@
   "name": "js-os",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rajagopalan-gangadharan.github.io/JS-OS/",
+  "homepage": "https://rajagopalan-gangadharan.github.io/Portfolio/",
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "@ckeditor/ckeditor5-build-classic": "^21.0.0",

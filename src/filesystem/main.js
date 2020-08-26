@@ -91,13 +91,20 @@ widgetFile.addContent({
     handler:null
 })
 getFolder('root/Data').addFile(widgetFile);
-var testfile = new fileStructure("test", '.dat');
 testfile.addContent({
     appData: {
-        title:"Note1",
-        desc: "Data",
-        desktop: false,
-        color:"#779ECB"
+        title: "Note-Welcome",
+        desc: "Welcome To an OS themed Portfolio. I am Rajagopalan Gangadharan.\
+        Feel free to explore around by clicking the rocket icon for more apps.\
+        Event handlers, API's for application management along with JS based file System\
+        created with ❤ and from scratch. Comes with a terminal,explorer, editors,\
+        3D demonstrator. Be sure to check out my Blogs in newsfeed and learn more\
+        about me and my experience.\
+        ",
+        top: "50px",
+        right: "100px",
+        desktop: true,
+        color: "#779ECB"
     }
 })
 getFolder('root/Data/stickynotes').addFile(testfile);
@@ -106,8 +113,11 @@ testfile2.addContent({
     appData: {
         title: "Note2",
         desc: "Data",
-        desktop: true,
-        color:"#779ECB"
+        desktop: false,
+        top: "450px",
+        right: "450px",
+
+        color: "#77DD77"
     }
 })
 getFolder('root/Data/stickynotes').addFile(testfile2);
