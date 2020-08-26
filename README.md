@@ -16,7 +16,7 @@ An Unified Operating System on the web.[For Demo](https://rajagopalan-gangadhara
 4. Start Local Server      
       `npm start`
 5. Run the app in development mode
-Open `[http://localhost:3000](http://localhost:3000)` to view in the browser. 
+Open [http://localhost:3000](http://localhost:3000) to view in the browser. 
 
 
 
