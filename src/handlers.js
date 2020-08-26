@@ -65,7 +65,7 @@ export function defaultAppsInstaller()
     appInstaller('CodeStudio', './icons/vscode.png', <CodeStudio />)
     appInstaller('StickyNotes', './icons/stickynotes.png', <StickyNotesApp />);
     appInstaller('ProcessManager', './icons/task.png', <ProcessManager data={eventHandler} />)
-    appInstaller('Blogger', './icons/browser.png', <BlogHome />);
+    appInstaller('Blogger', './icons/blogger.png', <BlogHome />);
     console.log(appRegistry);
 }
 function parentGen(id)
