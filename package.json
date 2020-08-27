@@ -18,6 +18,7 @@
     "@react-latest-ui/react-sticky-notes": "^0.2.6",
     "@react-pdf/renderer": "^1.6.10",
     "@uiw/react-markdown-editor": "^2.0.0",
+    "argparse": "^2.0.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.0",
     "draft-js": "^0.11.7",
@@ -62,7 +63,8 @@
     "react-viewer": "^3.2.2",
     "request": "^2.88.0",
     "semantic-ui-react": "^1.2.1",
-    "three": "^0.109.0"
+    "three": "^0.109.0",
+    "yargs-parser": "^19.0.1"
   },
   "scripts": {
     "start": "react-app-rewired start",

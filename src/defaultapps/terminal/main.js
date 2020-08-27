@@ -1,28 +1,12 @@
-function lexer(str)
+
+import parser from 'yargs-parser'
+export function processArg(string,folderPath)
 {
-    /*var lex=str.,tok='';
-    for(let x=0;x<str.length;++x)
+    let arg = parser(string);
+    let marg = arg['_'];
+    if (length(marg) == 0)
     {
-        if(str[x]!=' ')
-        {
-            tok+=str[x];
-        }
-        else if(str[x]==' ')
-        {
-            if(tok!='')
-            {
-                lex.push(tok);
-            }
-            tok='';
-        }
+        return [[`Command ${string} is invalid`, 'red']];
     }
-    return lex;
-    */
-   let lex=str.split(' ');
-   return lex;
-}
-export function commandLineProcessor(string)
-{
-    let lex=lexer(string);
-    return lex;
+
 }

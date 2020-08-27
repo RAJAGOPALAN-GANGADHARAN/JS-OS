@@ -13,6 +13,7 @@
 #terminal .line .directory{
     color:green;
 }
+
 #terminal .line .type{
     background-color:transparent;
     border:none;

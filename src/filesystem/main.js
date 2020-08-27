@@ -23,6 +23,29 @@ export function getFolder(path)
     
     return it;
 }
+export function validPath(path)
+{
+    var res = path.split("/");
+    var it = disk;
+    if (res[0] != "root") return false;
+    //console.log(disk.folderContents['desktop'].folderContents['folder1'])
+    for (let x = 1; x < res.length; ++x) {
+        it = it.folderContents[res[x]];
+        if (it == null) return false;
+    }
+    console.log(res);
+
+    return true;
+}
+
+export function goBack(path)
+{
+    var res = path.split("/");
+    if (res.length == 1) return it;
+    res.pop();
+    return res.join('/');
+
+}
 //default folders
 // var folder1=new folderStructure('home0');
 // for(var x=0;x<9;++x)
@@ -62,24 +85,10 @@ for (let item of desktopContents) {
     tfile.addContent(item.content);
     desktop.addFile(tfile);
 }
-let folder1 = new folderStructure("folder1");
-for (let item of desktopContents) {
-    var tfile = new fileStructure(item.name, item.ext);
-    tfile.addContent(item.content);
-    folder1.addFile(tfile);
-}
-desktop.addObject(folder1);
+
 disk.addObject(desktop);
 
-let t = getFolder("root/desktop/folder1")
-t.addObject(new folderStructure("folder2"));
-let f = new fileStructure("markdownTest", ".md");
-f.addContent({
-    icon: "markdown.png",
-    appData: "## Hello",
-    app:"Markdown"
-})
-t.addFile(f);
+
 
 disk.addObject(new folderStructure('Data'));
 getFolder('root/Data').addObject(new folderStructure('stickynotes'));

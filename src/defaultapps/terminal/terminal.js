@@ -1,63 +1,112 @@
 import React,{Component} from 'react';
 import Iframe from 'react-iframe';
 import './terminal.css';
-import { commandLineProcessor } from './main';
+import parser from 'yargs-parser';
+import { getFolder,validPath, goBack } from '../../filesystem/main';
+import { Stack } from '../../scripts';
+
+var graffiti = String.raw`
+ _ __                               _          
+' )  )                             //          
+ /--' __.  o __.  _,  __ _   __.  // __.  ____ 
+/  \_(_/|_/_(_/|_(_)_(_)/_)_(_/|_</_(_/|_/ / <_
+         /        /|   /                       
+       -'        |/   '                                                         
+`
 export class Terminal extends Component
 {
     constructor(props)
     {
+        
         super(props);
         this.state={id:this.props.id,directory:this.props.directory,prevDirectory:null,lineHolder:[]}
-        this.lines=0;
+        this.lines = 0;
+        this.folderPath = 'root';
     }
     componentDidMount()
     {
-        //var window=document.getElementById(this.state.id);
-        //window.style.borderRadius="5px";
-        //window.querySelector('.header').style.backgroundColor="red";
         this.element=document.getElementById('terminal');
         this.newLine();
     }
+    withPath = (content, color) => {
+        //this.lines++;
+        return (<div key={this.state.id + this.lines} className="line">
+            <div className="directory">{this.folderPath}$</div>
+            <div className="line" style={{ color: color }}>{content}</div>
+            </div>
+            )
+    }
+    withoutPath = (content, color) => {
+        //this.lines++;
+        return (<div key={this.state.id + this.lines} className="line">
+            <div className="line" style={{ color: color }}>{content}</div>
+        </div>
+        )
+    }
+    constructPath = (path) => {
+        if (path[path.length - 1] == '/')
+            path = path.slice(0, -1);
+        let res = path.split('/');
+        let final =""
+        for (var x = 0; x < res.length; ++x)
+        {
+            if (res[x] == ".") {
+                if (final == "")
+                    final = this.folderPath;
+            }
+            else if (res[x] == "..")
+                final = goBack(final);
+            else {
+                if (final!="")
+                    final = final + "/" + res[x];
+                else final += res[x];
+            }
+        }
+        return final;
+    }
     process(cont)
     {
-       let string=cont.value;
-       //let opt=commandLineProcessor(string);
-       let lex=string.split(' ');
-       var holder=this.state.lineHolder;
-       if(lex[0]=="ls")
-       {
-           
-           var content=this.state.directory.folderContents;
-           for(let dir in content)
-           {
-               holder.push(
-                <div key={this.state.id+this.lines} className="line">
-                <div className="line">{content[dir].folderName}/</div>
-                </div>
-               );
-           }
-           this.setState({lineHolder:holder});
-       }
-       else if(lex[0]=="cd")
-       {
-           if(lex[1]=="..")
-           {
-                //TO be done
-           }
-           else
-           {
-            var content=this.state.directory.folderContents;
-            this.setState({directory:content[lex[1]]});
-           }
-       }
-       else
-       {
-           holder.push(
-            <div key={this.state.id+this.lines} className="line">
-            <div className="line" style={{color:'red'}}>{lex.join(' ')} is not a valid command</div>
-            </div>
-           )
-       }
+        let string=cont.value;
+        var holder = this.state.lineHolder;
+
+
+        let arg = parser(string);
+        let marg = arg['_'];
+        if (marg.length == 0) {
+            holder.push(
+                this.withPath(`Command ${string} is invalid`, 'red')    
+            );
+        }
+        else if (marg[0] == 'ls')
+        {
+            var folder = getFolder(this.folderPath).folderContents;
+            console.log(folder);
+            for (let dir of Object.keys(folder))
+            {
+                if(folder[dir].isFolder)
+                holder.push(
+                    this.withoutPath(folder[dir].folderName+"/","violet")
+                )
+                else holder.push(this.withoutPath(folder[dir].completeName,"blue"))
+            }
+        }
+        else if (marg[0] == 'cd')
+        {
+            console.log(arg);
+            if (marg.length == 1)
+                holder.push(
+                    this.withPath(`Command ${string} is invalid requires a parameter`, 'red')
+                );
+            else {
+                let cpath = this.constructPath(marg[1]);
+                if (validPath(cpath)) {
+                    this.folderPath = cpath;
+                }
+                else holder.push(this.withPath(`Location ${cpath} not found`, 'red'));
+            }
+        }
+
+        this.setState({ lineHolder: holder });
     }
     enterHouseKeeping=(e)=>{
         if(e.key === "Enter")
@@ -75,7 +124,7 @@ export class Terminal extends Component
         console.log(this.props.directory.folderName)
         holder.push(
             <div key={this.state.id+this.lines} className="line">
-                <div className="directory">{this.state.directory.folderName}$</div>
+                <div className="directory">{this.folderPath}$</div>
                 <input id={this.state.id+'line'+this.lines} className="type" onKeyPress={this.enterHouseKeeping} autofocus="true"></input>
             </div>
         );
@@ -94,6 +143,7 @@ export class Terminal extends Component
     {
         return(
             <div id="terminal">
+                <pre style={{color:"green"}}>{graffiti}</pre>
               {this.state.lineHolder.map(line=>line)}  
             </div>
             );
