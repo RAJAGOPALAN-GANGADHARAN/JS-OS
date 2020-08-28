@@ -4,7 +4,7 @@ import { StickyNotes, populateSticky } from '../defaultapps/stickynotes/sticky';
 
 //launcher installer
 
-//handle files
+//handle files 
 //main root
 export var disk = new folderStructure('root');
 var signal = new fileStructure('signal', '.dat');
@@ -12,6 +12,16 @@ signal.addContent({
     handleDraw:false
 })
 disk.addFile(signal);
+
+
+var cppfile = new fileStructure('test', '.cpp');
+cppfile.addContent({
+    appData: "#include<iostream",
+    icon: "vscode.png",
+    app:"CodeStudio"
+})
+disk.addFile(cppfile);
+
 export function getFolder(path)
 {
     var res = path.split("/");

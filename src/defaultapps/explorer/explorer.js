@@ -77,7 +77,7 @@ export default class Explorer extends Component
                 let customIcon = currentObject.fileContents.icon;
                 console.log(customIcon);
                 rightPaneHolder.push(
-                <div className="iconHolder" onClick={()=>{eventDispatcher(currentObject.fileContents.app,currentObject.fileContents.appData)}}>
+                <div className="iconHolder" onClick={()=>{eventDispatcher(currentObject.fileContents.app,currentObject.fileContents.appData,currDisk,currentObject)}}>
                 <img src={customIcon ? require(`../../desktop/taskbaricon/icons/${customIcon}`):fileLogo[ext]}></img>
                 {currentName}
                 </div>

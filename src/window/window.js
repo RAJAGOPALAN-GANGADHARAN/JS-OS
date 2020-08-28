@@ -13,7 +13,8 @@ export default class Window extends Component
         this.close=this.close.bind(this);
         this.minimize=this.minimize.bind(this);
         this.maximize=this.maximize.bind(this);
-        this.setFrameLevel=this.setFrameLevel.bind(this);
+        this.setFrameLevel = this.setFrameLevel.bind(this);
+        console.log(this.props.file);
         //eventDispatcher(this.state.id,'./icons/google.png');
     }
     componentDidMount()
@@ -95,7 +96,7 @@ export default class Window extends Component
                 <div className="content">
                 {
                     React.cloneElement(this.props.source,
-                    {id:this.state.id,appData:this.props.appData,fs:this.props.fs})
+                    {id:this.state.id,appData:this.props.appData,fs:this.props.fs,file:this.props.file})
                 }
                 </div>
                 

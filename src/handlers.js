@@ -102,7 +102,7 @@ export function taskParentGen(id)
     taskbar.appendChild(element);
     return element;
 }
-export function eventDispatcher(requestedAppId,data=null,fs=null)
+export function eventDispatcher(requestedAppId,data=null,fs=null,file=null)
 {
     if (requestedAppId in appRegistry === false)
         return false;
@@ -116,7 +116,8 @@ export function eventDispatcher(requestedAppId,data=null,fs=null)
         var tPG=taskParentGen(id);
         ReactDOM.render(<TaskbarIcon id={id} name={eventHandler[id].processName} location={`${eventHandler[id].iconData}`}/>,tPG)
     }
-    ReactDOM.render(<Window appName={requestedAppId} id={id} source={eventHandler[id].Source} fs={fs} appData={data}/>,parentGen(id));
+    console.log(file);
+    ReactDOM.render(<Window appName={requestedAppId} id={id} source={eventHandler[id].Source} fs={fs} appData={data} file={file}/>,parentGen(id));
 }
 function parentDestroy(id)
 {
