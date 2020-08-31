@@ -195,18 +195,23 @@ getFolder('root/desktop').addObject(experience);
 
 
 /*Projects */
-var projects = new fileStructure('Projects','.img');
-projects.addContent({
-    icon: "projects.png",
-    appData: [
-        { original: `${host_url}pulko.PNG`, thumbnail: `${host_url}pulko.PNG` }
-    ],
+var projects = new folderStructure('Projects');
+
+var ezlearn = new fileStructure('EZlearn', '.img');
+var ez = []
+for (var x = 1; x <= 8; ++x)
+    ez.push({ original: `${host_url}ezlearn/${x}.png`, thumbnail: `${host_url}ezlearn/${x}.png` })
+ezlearn.addContent({
+    icon: "book.png",
+    appData:ez,
     app:"ImageViewer"
 })
+projects.addFile(ezlearn);
 
 
 
-getFolder('root/desktop').addFile(projects);
+
+getFolder('root/desktop').addObject(projects);
 
 // localStorage.setItem("jsfs", JSON.stringify(disk));
 // var outdisk = JSON.parse(localStorage.getItem("jsfs"));
