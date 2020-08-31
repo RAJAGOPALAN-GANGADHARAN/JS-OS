@@ -78,14 +78,14 @@ export default class Desktop extends Component
                 let customIcon = currentObject.fileContents.icon;
                 console.log(customIcon);
                 rightPaneHolder.push(
-                    <div className="iconHolderDesktop" style={{ top: `${yaxis}px`, left: `${xaxis}px` }} onClick={() => { eventDispatcher(currentObject.fileContents.app, currentObject.fileContents.appData) }}>
+                    <div className="iconHolderDesktop" style={{ top: `${yaxis}px`, left: `${xaxis}px` }} onClick={() => { eventDispatcher(currentObject.fileContents.app, currentObject.fileContents.appData,currDisk,currentObject) }}>
                         <img src={customIcon ? require(`./taskbaricon/icons/${customIcon}`) : fileLogo[ext]}></img>
                         {currentName}
                     </div>
                 )
             }
             xaxis += 100
-            if (xaxis == 300)
+            if (xaxis >= 300)
             {
                 yaxis += 100
                 xaxis = 10

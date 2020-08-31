@@ -1,6 +1,8 @@
 import { folderStructure, fileStructure } from './fileClass';
 import React from 'react';
 import { StickyNotes, populateSticky } from '../defaultapps/stickynotes/sticky';
+import { data_gsoc, iiit,vpropel_data,readme,data_qt,data_keyboard } from './gsoc_data';
+import { populateImages } from '../defaultapps/imageviewer/imagewidget';
 
 //launcher installer
 
@@ -14,13 +16,14 @@ signal.addContent({
 disk.addFile(signal);
 
 
-var cppfile = new fileStructure('test', '.cpp');
+var cppfile = new fileStructure('g++_run_me', '.cpp');
 cppfile.addContent({
-    appData: "#include<iostream",
+    appData: '#include<iostream>\n using namespace std;\nint main(){\ncout<<"Hello world";\nreturn 0;\n}',
     icon: "vscode.png",
     app:"CodeStudio"
 })
 disk.addFile(cppfile);
+
 
 export function getFolder(path)
 {
@@ -56,20 +59,6 @@ export function goBack(path)
     return res.join('/');
 
 }
-//default folders
-// var folder1=new folderStructure('home0');
-// for(var x=0;x<9;++x)
-// folder1.addObject(new folderStructure('folder'+x));
-
-// disk.addObject(folder1);
-// for(var x=1;x<100;++x)
-// disk.addObject(new folderStructure('home'+x));
-
-// var file1=new fileStructure('raj','.pdf');
-// disk.addFile(file1);
-// var file2=new fileStructure('raj2','.txt');
-// disk.addFile(file2);
-// folder1.addFile(file1)
 
 var host_url ="https://rajagopalan-gangadharan.github.io/Host-Server/"
 var desktop = new folderStructure('desktop');
@@ -77,15 +66,22 @@ var desktop = new folderStructure('desktop');
 var desktopContents = [{
     name: "Resume", ext: ".pdf", content: {
         icon: "file_pdf.png",
-        appData: `${host_url}Resume_Rajagopalan.pdf`,
+        appData: `${host_url}Resume.pdf`,
         app: "PDFReader"
     }
 }, {
-    name: "Dp", ext: ".img", content: {
+        name: "Dp", ext: ".img", content: {
         appData: [
             {original:`${host_url}dp.jpg`,thumbnail:`${host_url}dp.jpg`}
         ],
         app:"ImageViewer"
+        }
+    },
+    {
+        name: "readme", ext: ".md", content: {
+            icon:"markdown.png",
+            appData: readme,
+            app:"Markdown"
         }
     }
 ]
@@ -102,10 +98,11 @@ disk.addObject(desktop);
 
 disk.addObject(new folderStructure('Data'));
 getFolder('root/Data').addObject(new folderStructure('stickynotes'));
+getFolder('root/Data').addObject(new folderStructure('imagegallery'));
 var widgetFile = new fileStructure('widgets', '.dat');
 widgetFile.addContent({
     appData: [
-        [populateSticky]
+        [populateSticky],[populateImages]
     ],
     handler:null
 })
@@ -118,7 +115,7 @@ testfile.addContent({
         Feel free to explore around by clicking the rocket icon for more apps.\
         Event handlers, API's for application management along with JS based file System\
         created with ❤ and from scratch. Comes with a terminal,explorer, editors,\
-        3D demonstrator. Be sure to check out my Blogs in newsfeed and learn more\
+        3D demonstrator. Be sure to check out readme to know more about the project and ,also learn more\
         about me and my experience.\
         ",
         top: "50px",
@@ -132,7 +129,7 @@ var testfile2 = new fileStructure("test2", '.dat');
 testfile2.addContent({
     appData: {
         title: "Note2",
-        desc: "Data",
+        desc: "This note is hidden click on the eye icon to show it on desktop..",
         desktop: false,
         top: "450px",
         right: "450px",
@@ -143,6 +140,73 @@ testfile2.addContent({
 getFolder('root/Data/stickynotes').addFile(testfile2);
 
 
+var recommend = new fileStructure("recommend", '.dat');
+recommend.addContent({
+    appData: {
+        title: "Recommend",
+        images: [{ original: `${host_url}pulko.PNG`, thumbnail: `${host_url}pulko.PNG` },
+            { original: `${host_url}ankush.PNG`, thumbnail: `${host_url}ankush.PNG`}
+        ],
+        right: "100px",
+        top: "450px",
+        width: "750px",
+        height:"150px"
+    }
+});
+getFolder('root/Data/imagegallery').addFile(recommend);
+
+
+var experience = new folderStructure("Work Experience");
+
+
+var vpropel = new fileStructure("Vpropel", '.md');
+vpropel.addContent({
+    icon:"vit.png",
+    app:"Markdown",
+    appData:vpropel_data
+})
+experience.addFile(vpropel);
+
+var iiitd = new fileStructure('IIITDM', '.md');
+iiitd.addContent({
+    app: "Markdown",
+    icon: "iiit.png",
+    appData: iiit
+})
+experience.addFile(iiitd);
+
+var gsoc = new fileStructure('Gsoc2019', '.md');
+gsoc.addContent({
+    icon:'gsoc.png',
+    appData: data_gsoc,
+    app: "Markdown"
+})
+experience.addFile(gsoc);
+
+var qt = new fileStructure('Qt', '.md');
+qt.addContent({
+    icon: 'qt.png',
+    appData: data_qt,
+    app:"Markdown"
+})
+experience.addObject(qt);
+
+getFolder('root/desktop').addObject(experience);
+
+
+/*Projects */
+var projects = new fileStructure('Projects','.img');
+projects.addContent({
+    icon: "projects.png",
+    appData: [
+        { original: `${host_url}pulko.PNG`, thumbnail: `${host_url}pulko.PNG` }
+    ],
+    app:"ImageViewer"
+})
+
+
+
+getFolder('root/desktop').addFile(projects);
 
 // localStorage.setItem("jsfs", JSON.stringify(disk));
 // var outdisk = JSON.parse(localStorage.getItem("jsfs"));

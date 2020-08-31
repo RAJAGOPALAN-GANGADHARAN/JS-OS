@@ -16,8 +16,12 @@ export default class MarkdownReader extends React.Component{
     }
     render()
     {
-        return(
-            <ReactMarkdown source={this.props.appData} />
+        return (
+            <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
+                <div style={{marginLeft:"10px"}}>
+                    <ReactMarkdown source={this.props.appData} />
+                </div>
+            </div>
         );
     }
 }

@@ -51,10 +51,9 @@ export function appInstaller(name,icon,Source)
 }
 export function defaultAppsInstaller()
 {
-    appInstaller('Test','./icons/browser.png',<Test/>);
     appInstaller('Explorer', './icons/folder.png', <Explorer/>);
     appInstaller('Terminal','./icons/terminal.png',<Terminal directory={disk}/>);
-    appInstaller('Time','./icons/clock.png',<TimeApp/>)
+    appInstaller('Clock','./icons/clock.png',<TimeApp/>)
     appInstaller('Editor', './icons/notepad.png', <WordEditor />)
     appInstaller('PDFReader', './icons/file_pdf.png', <PdfReader />)
     appInstaller('ImageViewer', './icons/gallery.png', <ImageViewer />);

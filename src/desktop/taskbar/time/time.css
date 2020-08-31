@@ -1,6 +1,6 @@
 #time-cont{
     height:100%;
-    width:3%;
+    width:5%;
     float: right;
     color:white;
     font-size:15px;
@@ -16,7 +16,8 @@
 #line-2{
     position: relative;
     top:8px;
-    right:20px;
+    left:-30px;
+    color:white;
 }
 @media only screen and (max-width: 720px) {
     #time-cont{

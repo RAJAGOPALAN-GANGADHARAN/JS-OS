@@ -81,4 +81,18 @@
     }
 }
 
+.popoutWindow {
+        animation: popout 1s ease;
+        -webkit-animation: popout 1s ease;
+    }
+    @keyframes popout {
+        from{transform:scale(0)}
+        80%{transform:scale(1.2)}
+        to{transform:scale(1)}
+    }
+    @-webkit-keyframes popout {
+        from{-webkit-transform:scale(0)}
+        80%{-webkit-transform:scale(1.2)}
+        to{-webkit-transform:scale(1)}
+    }
   

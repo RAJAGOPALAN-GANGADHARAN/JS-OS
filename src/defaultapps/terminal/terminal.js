@@ -79,7 +79,7 @@ export class Terminal extends Component
             },
             body: JSON.stringify(body)
         };
-        fetch(`http://localhost:8080/code/api`, requestOptions).then(data => data.json())
+        fetch(`https://cms-portfolio-backend-node.herokuapp.com/code/api`, requestOptions).then(data => data.json())
             .then(data => {
                 let holder = this.state.lineHolder;
                 if (data.error != "")
@@ -129,9 +129,15 @@ export class Terminal extends Component
         else if (marg[0] == 'g++')
         {
             let folder = getFolder(this.folderPath);
+            console.log(folder.folderContents[marg[1]]);
             if (folder.folderContents[marg[1]] != null)
             {
                 this.runCode(folder.folderContents[marg[1]], 'cpp');
+            }
+            else 
+            {
+                console.log("File not found");
+                holder.push(this.withoutPath("File not found", "red"));
             }
         }
         else if (marg[0] == 'java')
@@ -140,11 +146,17 @@ export class Terminal extends Component
             if (folder.folderContents[marg[1]] != null) {
                 this.runCode(folder.folderContents[marg[1]], 'java');
             }
+            else {
+                holder.push(this.withoutPath("File not found", "red"));
+            }
         }
         else if (marg[0] == 'python') {
             let folder = getFolder(this.folderPath);
             if (folder.folderContents[marg[1]] != null) {
                 this.runCode(folder.folderContents[marg[1]], 'python');
+            }
+            else {
+                holder.push(this.withoutPath("File not found", "red"));
             }
         }
         else if (marg[0] == 'cd')

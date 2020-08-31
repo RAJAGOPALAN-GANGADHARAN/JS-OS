@@ -50,6 +50,6 @@ export default class ProcessManager extends Component
     }
     render()
     {
-        return (<div styel={{overflowX:"auto"}}>{this.state.process}</div>)
+        return (<div styel={{overflow:"auto"}}>{this.state.process}</div>)
     }
 }

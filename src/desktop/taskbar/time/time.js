@@ -17,9 +17,9 @@ export default class Time extends Component
     render()
     {
         return(
-            <div id="time-cont" onClick={()=>{eventDispatcher('time')}}>
+            <div id="time-cont" onClick={()=>{eventDispatcher('Clock')}}>
             <div id="line-1">{this.state.date.getHours()+':'+this.state.date.getMinutes()}</div>
-            <div id="line-2">{this.state.date.getUTCDay()+'-'+this.state.date.getUTCMonth()+'-'+this.state.date.getUTCFullYear()}</div>
+                <div id="line-2">{this.state.date.getDay() + '-' + this.state.date.getMonth() + '-'+this.state.date.getFullYear()}</div>
             </div>
         );
     }

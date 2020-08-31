@@ -62,6 +62,7 @@ export default class Editor extends React.Component {
                 })
             }
             this.file = ft;
+            this.setState({file:ft})
             disk.addFile(ft);
         }
     }
@@ -74,7 +75,7 @@ export default class Editor extends React.Component {
         };
         return (
             <div style={{ width: "100%", height: "100%" }}>
-                {this.file ? null : <div style={{display:"flex"}}>
+                {this.state.file ? null : <div style={{display:"flex"}}>
                     <Button style={{ margin: "4px" }} onClick={(event) => this.save(event)}>Save</Button>
                     <Form.Control
                         style={{ margin: "4px" }}
