@@ -47,7 +47,6 @@ export default class Desktop extends Component
             let vv = widget[0]();
             wtemp=wtemp.concat(vv);
         }
-        //console.log(wtemp);
         this.setState({widgets:wtemp})
     }
     folderPopulator=(currDisk)=> {
@@ -119,12 +118,6 @@ export default class Desktop extends Component
     }
     render()
     {
-        //desktop of the os
-        /*<button onClick={()=>{this.setState({test:<Window/>})}}>spawn</button>
-                {this.state.test}
-                <div className='custom-menu' >
-                <li onClick={()=>modify()}>Change color</li>
-                </div>*/
         return(
             <Fullscreen enabled={this.state.isFull} onChange={isFull => this.setState({isFull})}>
                 <ContextMenu />
@@ -141,8 +134,3 @@ export default class Desktop extends Component
         );
     }
 }
-/*
-<Window />
-                <Window temp={<button>Install</button>}/>
-                <Window />
-                */

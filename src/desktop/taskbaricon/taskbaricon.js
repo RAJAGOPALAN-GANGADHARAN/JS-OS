@@ -16,10 +16,6 @@ export default class TaskIcon extends Component
         this.showMiniWindow=this.showMiniWindow.bind(this);
         console.log(this.props.type);
     }
-    /*testSpawner()
-    {
-        eventDispatcher('./icons/google.png');
-    }*/
     assignedEvent(appId)
     {
         if(this.props.type=="launcher")
@@ -29,7 +25,6 @@ export default class TaskIcon extends Component
         else
         {
             this.showMiniWindow(appId);
-            //eventDispatcher(appId);
         }
         
     }
@@ -39,21 +34,6 @@ export default class TaskIcon extends Component
         if (this.props.type == "launcher") return;
         try
         {
-            // var element1=document.getElementById(this.props.id+"parent");
-            // var element3=document.getElementById(this.props.id+"taskParent");
-            // var element2=document.getElementById(this.props.id+"mini");
-            // //element2.innerHTML=element1.innerHTML;
-            // element2.appendChild(element1.cloneNode(true));
-            // element2.style.height="50px";
-            // element2.style.width="50px";
-            // element2.style.position="absolute";
-            // element2.style.top="-300px";
-            // var rect=element3.getBoundingClientRect();
-            // console.log(rect);
-            // element2.style.left=rect.left/2;
-            // var element=element2.getElementById(this.props.id);
-            // // element.style.height="100%";
-            // // element.style.width="100%";
             html2canvas(document.getElementById(this.props.id), { useCORS: true}).then((canvas) => {
                 document.getElementById(this.props.id + "mini").src = canvas.toDataURL();
                 document.getElementById(this.props.id + "mini").style.position = "absolute";
