@@ -1,9 +1,5 @@
-# Portfolio - Rajagopalan Gangadharan
-
-
-This portfolio is fully interactive. [Click Here](https://rajagopalan-gangadharan.github.io/Portfolio/) for Viewing. It is a custom distro of An Operating System Emulator on the web.[JS-OS](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS) Created by me, with API's for app Installing handling, process management all written in javascript from scratch.
-
-Feel free to check out the repo and suggest some ideas + any beginner contributions are welcomed.
+# JS-OS
+An Unified Operating System on the web.[For Demo](https://rajagopalan-gangadharan.github.io/JS-OS/index.html)
 ### Technologies Used :
   * HTML
   * CSS
@@ -12,8 +8,9 @@ Feel free to check out the repo and suggest some ideas + any beginner contributi
   
 ### How to Run Locally :
 1. Clone the Repository
-2. cd into Portfolio
-      `cd Portfolio`
+     `git clone https://github.com/NJACKWinterOfCode/JS-OS.git`
+2. cd into JS-OS
+      `cd JS-OS`
 3. Install all dependencies      
       `npm install`     
 4. Start Local Server      
@@ -23,3 +20,5 @@ Open [http://localhost:3000](http://localhost:3000) to view in the browser.
 
 
 
+### Discord Link:
+https://discord.gg/DGdSYDY
