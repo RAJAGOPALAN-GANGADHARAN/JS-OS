@@ -19,7 +19,7 @@
     "@react-pdf/renderer": "^1.6.10",
     "@uiw/react-markdown-editor": "^2.0.0",
     "argparse": "^2.0.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "draft-js": "^0.11.7",
     "glot-api": "^0.1.0",
