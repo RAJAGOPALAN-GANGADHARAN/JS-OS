@@ -1,5 +1,9 @@
 # JS-OS
 An Unified Operating System on the web.[For Demo](https://rajagopalan-gangadharan.github.io/JS-OS/index.html)
+
+## Loving the idea?
+Follow me and give a star for more updates.
+
 ### Technologies Used :
   * HTML
   * CSS
