@@ -1,5 +1,6 @@
 <div align="center">
-  <img alt="ReDoc logo" src="https://github.com/anushka-2001/JS-OS/blob/rebased/JS-OS.png" width="400px" />
+  
+# **JS-OS**
 
   **An Unified Operating System on the web**
 
@@ -18,7 +19,7 @@
 
 ## [Live demo](http://rajagopalan-gangadharan.github.io/JS-OS/index.html)
 
-[<img alt="Deploy to Github" src="http://i.imgur.com/YZmaqk3.png" height="60px">](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS/tree/master) [<img alt="Customization services" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/) </div>
+[<img alt="Deploy to Github" src="http://i.imgur.com/YZmaqk3.png" height="60px">](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS/tree/master) [<img alt="Portfolio example" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/) </div>
 
 * * *
 
@@ -28,6 +29,7 @@
 - Opensource support
 - Neat **interactive** documentation. 
 - Responsive all-around design with functionality synchronization
+- JS-OS can be used as an interactive portfolio as well
 
 
 ## Releases
@@ -53,7 +55,7 @@ Additionally, all the issues and contributions are avilabue on the very same rep
 **IMPORTANT NOTE:** If you want to enhance my project, please contact me for better guidance.
 
 ### 1.  Clone the Repository
-`git clone https://github.com/NJACKWinterOfCode/JS-OS.git`
+`git clone https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS.git`
 
 ### 2.  cd into JS-OS
   `cd JS-OS`
