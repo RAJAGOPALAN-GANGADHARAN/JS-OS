@@ -10,6 +10,7 @@
 
 
 
+
 **This is README for `2.0` version of JS-OS(JavaScript based).**
 
 
@@ -18,6 +19,8 @@
 ## [Live demo](http://rajagopalan-gangadharan.github.io/JS-OS/index.html)
 
 [<img alt="Deploy to Github" src="http://i.imgur.com/YZmaqk3.png" height="60px">](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS/tree/master) [<img alt="Customization services" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/) </div>
+
+* * *
 
 ## Features
 - Extremely easy deployment
