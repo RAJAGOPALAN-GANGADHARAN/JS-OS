@@ -6,7 +6,7 @@
  [![License](https://img.shields.io/npm/l/redoc.svg)](https://github.com/Redocly/redoc/blob/master/LICENSE)
 
 
-
+<br>
 
 
 
