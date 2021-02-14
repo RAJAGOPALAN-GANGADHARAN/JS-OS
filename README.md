@@ -67,11 +67,11 @@ Additionally, all the issues and contributions are avilabue on the very same rep
     `npm start`
     
 ### 5.  Run the app in development mode Open  [http://localhost:3000](http://localhost:3000/)  to view in the browser.
-    npm i redoc
+    npm i JS-OS
 
 or using [yarn](https://yarnpkg.com):
 
-    yarn add redoc
+    yarn add JS-OS
 
 ### 6.  Enjoy :smile:
 
