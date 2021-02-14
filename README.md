@@ -17,7 +17,7 @@
 
 ## [Live demo](http://rajagopalan-gangadharan.github.io/JS-OS/index.html)
 
-[<img alt="Deploy to Github" src="http://i.imgur.com/YZmaqk3.png" height="60px">](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS/tree/master) [<img alt="Customization services" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/)
+[<img alt="Deploy to Github" src="http://i.imgur.com/YZmaqk3.png" height="60px">](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS/tree/master) [<img alt="Customization services" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/) </div>
 
 ## Features
 - Extremely easy deployment
@@ -25,8 +25,7 @@
 - Opensource support
 - Neat **interactive** documentation. 
 - Responsive all-around design with functionality synchronization
-- Simple integration with `create-react-app` ([sample](https://github.com/APIs-guru/create-react-app-redoc))
-- Branding/customizations via [`theme` option](#redoc-options-object)
+
 
 ## Releases
 **Important:** if you like the unique idea, star the repository and follow me for further updates.
