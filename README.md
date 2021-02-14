@@ -8,12 +8,12 @@
 
 
 
-</div>
+
 
 **This is README for `2.0` version of JS-OS(JavaScript based).**
 
 
-![ReDoc demo](https://github.com/anushka-2001/JS-OS/blob/rebased/video.gif)
+![ReDoc demo](https://github.com/anushka-2001/JS-OS/blob/rebased/video.gif) </div>
 
 ## [Live demo](http://rajagopalan-gangadharan.github.io/JS-OS/index.html)
 
