@@ -19,7 +19,7 @@
 
 ## [Live demo](http://rajagopalan-gangadharan.github.io/JS-OS/index.html)
 
-[<img alt="Deploy to Github" src="http://i.imgur.com/YZmaqk3.png" height="60px">](https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS/tree/master) [<img alt="Portfolio example" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/) </div>
+[<img alt="Portfolio example" src="http://i.imgur.com/c4sUF7M.png" height="60px">](https://rajagopalan-gangadharan.github.io/Portfolio/) </div>
 
 * * *
 
