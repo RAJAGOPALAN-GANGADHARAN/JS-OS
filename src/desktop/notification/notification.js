@@ -10,6 +10,8 @@ export default class Panel extends Component {
         this.expand = this.expand.bind(this);
         this.state = { panelcolor: theme_color_panels, paneltype: 'solid' };
     }
+
+    //Fullscreen enter and exit code by aritroCoder
     expand() {
         if(this.props.parent_class.isFull=== true)
             this.props.parent_class.setState({ isFull: false });
