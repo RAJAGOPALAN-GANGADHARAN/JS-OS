@@ -37,6 +37,10 @@ export default class Desktop extends Component
     {
         this.setState({ isFull: true });
     }
+    stopFullScreen()
+    {
+        this.setState({ isFull: false });
+    }
     
     getWidgets()
     {
@@ -62,7 +66,7 @@ export default class Desktop extends Component
         for (var fcnt in currDisk.folderContents) {
             let currentObject = currDisk.folderContents[fcnt];
             console.log(xaxis,yaxis)
-            if (currentObject.isFolder == true) {
+            if (currentObject.isFolder === true) {
                 let currentName = currentObject.folderName;
                 rightPaneHolder.push(
                     <div className="iconHolderDesktop" style={{ top: `${yaxis}px`,left:`${xaxis}px` }} onClick={() => { eventDispatcher('Explorer',null,currentObject) }}>
