@@ -25,7 +25,6 @@ export default class Desktop extends Component
         */
         //bind
         this.backgroundSetter=this.backgroundSetter.bind(this);
-        this.goFullScreen=this.goFullScreen.bind(this);
         //this.adder=this.adder.bind(this);
         //this.closer=this.closer.bind(this);
         this.state={
@@ -33,15 +32,6 @@ export default class Desktop extends Component
         };
         
     }
-    goFullScreen()
-    {
-        this.setState({ isFull: true });
-    }
-    stopFullScreen()
-    {
-        this.setState({ isFull: false });
-    }
-    
     getWidgets()
     {
         let wtemp=[]
