@@ -61,6 +61,10 @@
     "webpack": "4.41.0",
     "yargs-parser": "^19.0.1"
   },
+  "devDependencies": {
+    "gh-pages": "^2.2.0",
+    "react-app-rewired": "^2.1.6"
+  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
