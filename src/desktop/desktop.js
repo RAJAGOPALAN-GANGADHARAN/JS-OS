@@ -25,8 +25,6 @@ export default class Desktop extends Component
         */
         //bind
         this.backgroundSetter=this.backgroundSetter.bind(this);
-        //this.adder=this.adder.bind(this);
-        //this.closer=this.closer.bind(this);
         this.state={
             bgimage:null,isFull:false,visible:false,desktopIcons:null
         };
@@ -113,8 +111,8 @@ export default class Desktop extends Component
     render()
     {
         return(
-            <Fullscreen enabled={this.state.isFull} onChange={isFull => this.setState({isFull})}>
-                <ContextMenu />
+            <Fullscreen enabled={this.state.isFull}>
+                <ContextMenu />              
                 <div id="emptyDragclass"></div>
                 <div id="launcher">
                 </div>

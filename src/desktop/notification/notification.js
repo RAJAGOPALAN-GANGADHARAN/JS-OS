@@ -11,15 +11,8 @@ export default class Panel extends Component {
         this.state = { panelcolor: theme_color_panels, paneltype: 'solid' };
     }
 
-    //Fullscreen enter and exit code by aritroCoder
     expand() {
-        if(this.props.parent_class.isFull=== true)
-            this.props.parent_class.setState({ isFull: false });
-        else{
-            this.props.parent_class.setState({ isFull: true });
-            document.webkitExitFullscreen();
-        }
-
+        this.props.parent_class.setState({ isFull: !this.props.parent_class.state.isFull })
     }
     nullBind() {
 
