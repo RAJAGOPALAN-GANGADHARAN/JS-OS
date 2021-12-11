@@ -58,7 +58,7 @@
     "request": "^2.88.0",
     "semantic-ui-react": "^1.2.1",
     "three": "^0.109.0",
-    "webpack": "^4.41.0",
+    "webpack": "4.41.0",
     "yargs-parser": "^19.0.1"
   },
   "scripts": {
