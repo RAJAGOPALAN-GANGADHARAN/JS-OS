@@ -45,7 +45,7 @@ export class TimeApp extends Component
     render()
     {
         return(
-            <div style={{backgroundColor:"lightgrey",width:"100%",height:"100%",alignContent:"center"}}>
+            <div style={{backgroundColor:"lightgrey",width:"100%",height:"100%",alignContent:"center",minHeight:160,minWidth:160}}>
                 <Clock value={this.state.value} />
             </div>
         )
