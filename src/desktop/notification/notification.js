@@ -1,27 +1,23 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import './notification.css';
 import Status from './statusicons/status';
-import {theme_color_panels,notify_status} from '../../globalvariables';
-import { FaExpand,FaBell, FaGithub, FaLinkedin, FaEnvelope, FaAt, FaStar } from 'react-icons/fa';
+import { theme_color_panels, notify_status } from '../../globalvariables';
+import { FaExpand, FaBell, FaGithub, FaLinkedin, FaEnvelope, FaAt, FaStar } from 'react-icons/fa';
 
-export default class Panel extends Component
-{
-    constructor(props)
-    {
+export default class Panel extends Component {
+    constructor(props) {
         super(props);
-        this.expand=this.expand.bind(this);
-        this.state={panelcolor:theme_color_panels,paneltype:'solid'};
+        this.expand = this.expand.bind(this);
+        this.state = { panelcolor: theme_color_panels, paneltype: 'solid' };
     }
-    expand()
-    {
-        this.props.parent_class.setState({ isFull: true });
+
+    expand() {
+        this.props.parent_class.setState({ isFull: !this.props.parent_class.state.isFull })
     }
-    nullBind()
-    {
+    nullBind() {
 
     }
-    gitHubIcon=()=>
-    {
+    gitHubIcon = () => {
         window.open("https://github.com/RAJAGOPALAN-GANGADHARAN/", "_blank")
     }
     linkedin = () => {
@@ -33,16 +29,15 @@ export default class Panel extends Component
     repo = () => {
         window.open("https://github.com/RAJAGOPALAN-GANGADHARAN/JS-OS", "_blank");
     }
-    render()
-    {
-        return(
-            <div id="notificationpanel" style={{backgroundColor:this.state.panelcolor}}>
-            <Status icon={<FaExpand/>} event={this.expand} styles="expand_icon"/>
+    render() {
+        return (
+            <div id="notificationpanel" style={{ backgroundColor: this.state.panelcolor }}>
+                <Status icon={<FaExpand />} event={this.expand} styles="expand_icon" />
                 {notify_status ? (<Status icon={<FaBell />} event={this.nullBind} />) : (<Status icon={<FaBell />} event={this.nullBind} />)}
                 <Status icon={<FaGithub />} event={this.gitHubIcon} />
                 <Status icon={<FaLinkedin />} event={this.linkedin} />
                 <Status icon={<FaAt />} event={this.mailto} />
-                <Status icon={<FaStar/>} event={this.repo}/>
+                <Status icon={<FaStar />} event={this.repo} />
             </div>
         )
     }

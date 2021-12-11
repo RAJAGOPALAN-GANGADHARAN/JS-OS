@@ -25,19 +25,11 @@ export default class Desktop extends Component
         */
         //bind
         this.backgroundSetter=this.backgroundSetter.bind(this);
-        this.goFullScreen=this.goFullScreen.bind(this);
-        //this.adder=this.adder.bind(this);
-        //this.closer=this.closer.bind(this);
         this.state={
             bgimage:null,isFull:false,visible:false,desktopIcons:null
         };
         
     }
-    goFullScreen()
-    {
-        this.setState({ isFull: true });
-    }
-    
     getWidgets()
     {
         let wtemp=[]
@@ -62,7 +54,7 @@ export default class Desktop extends Component
         for (var fcnt in currDisk.folderContents) {
             let currentObject = currDisk.folderContents[fcnt];
             console.log(xaxis,yaxis)
-            if (currentObject.isFolder == true) {
+            if (currentObject.isFolder === true) {
                 let currentName = currentObject.folderName;
                 rightPaneHolder.push(
                     <div className="iconHolderDesktop" style={{ top: `${yaxis}px`,left:`${xaxis}px` }} onClick={() => { eventDispatcher('Explorer',null,currentObject) }}>
@@ -119,8 +111,8 @@ export default class Desktop extends Component
     render()
     {
         return(
-            <Fullscreen enabled={this.state.isFull} onChange={isFull => this.setState({isFull})}>
-                <ContextMenu />
+            <Fullscreen enabled={this.state.isFull}>
+                <ContextMenu />              
                 <div id="emptyDragclass"></div>
                 <div id="launcher">
                 </div>
