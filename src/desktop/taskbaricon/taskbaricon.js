@@ -57,10 +57,12 @@ export default class TaskIcon extends Component
     render()
     {
         return(
-            <div className="taskicon-cont" onClick={()=>{this.assignedEvent(this.props.name)}} onMouseEnter={()=>{this.showMiniWindow(this.props.name)}} onMouseLeave={(event)=>this.destroy(event,this.props.name)} >
+            <div className="taskicon-cont" onClick={()=>{this.assignedEvent(this.props.name)}} onMouseOver={()=>{this.assignedEvent(this.props.name)}}>
             <img className="taskicon" src={require(`${this.props.location}`)}></img>
             <img id={this.props.id+"mini"}></img>
             </div>
         );
     }
+    
+ 
 }
