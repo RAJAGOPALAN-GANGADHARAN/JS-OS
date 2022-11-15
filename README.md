@@ -44,10 +44,10 @@ Additionally, all the issues and contributions are avilabue on the very same rep
 
 ## Technologies Used
 
--   HTML
--   CSS
--   JavaScript
--   React-JS
+-   [HTML](https://www.geeksforgeeks.org/html/)
+-   [CSS](https://www.scaler.com/topics/css/)
+-   [JavaScript](https://www.scaler.com/topics/javascript/)
+-   [React-JS](https://reactjs.org/tutorial/tutorial.html)
 
 ## Deployment
 
